@@ -7,11 +7,12 @@
 
 import Foundation
 
-class LoginViewModel: LoginViewControllerProtocol {
+class LoginViewModel: LoginViewControllerDelegate {
     
     
-    static let apiProvider: ApiProviderProtocol()
+    let apiProvider = ApiProviderProtocol()
     
+  
     func loginButtonAction(email: String, password: String) {
         <#code#>
     }

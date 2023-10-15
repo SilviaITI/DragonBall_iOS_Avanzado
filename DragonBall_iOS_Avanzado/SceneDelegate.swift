@@ -17,11 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let rootViewController = storyboard.instantiateViewController(identifier: "LoginViewController") as? LoginViewController
         rootViewController?.viewModel = LoginViewModel(
-          apiProvider: ApiProvider(),
+          apiProvider: ApiProvider())
         //    secureDataProvider: SecureDataProvider())
         
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController ?? UIViewController())
+          window = UIWindow(windowScene: windowScene),
+          window?.rootViewController = UINavigationController(rootViewController: rootViewController ?? UIViewController)
         window?.makeKeyAndVisible()
     }
 
