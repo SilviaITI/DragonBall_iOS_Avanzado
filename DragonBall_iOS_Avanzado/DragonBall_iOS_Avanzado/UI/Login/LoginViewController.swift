@@ -17,7 +17,7 @@ enum LoginViewState {
     case loading(_ isLoading: Bool)
     case showErrorEmail(_ error: String?)
     case showErrorPassword (_ error: String?)
-    case navigateToNext
+    case navigateToHeroes
 }
 class LoginViewController: UIViewController {
 
@@ -72,11 +72,10 @@ class LoginViewController: UIViewController {
                 } else {
                     self.emailLabelError.isHidden = true
                 }
-                
                 break
             case .showErrorPassword(let error):
                 break
-            case .navigateToNext:
+            case .navigateToHeroes:
                 break
             }
         }

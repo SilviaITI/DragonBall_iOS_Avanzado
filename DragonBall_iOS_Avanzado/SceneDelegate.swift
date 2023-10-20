@@ -14,9 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene  = (scene as? UIWindowScene) else { return }
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let rootViewController = storyboard.instantiateViewController(identifier: "LoginViewController") as? LoginViewController
-        rootViewController?.viewModel = LoginViewModel(
+        let storyboard = UIStoryboard(name: "Splash", bundle: .main)
+        let rootViewController = storyboard.instantiateViewController(identifier: "SplashViewController") as? SplashViewController
+        rootViewController?.viewModel = SplashViewModel(
           apiProvider: ApiProvider())
         //    secureDataProvider: SecureDataProvider())
         
