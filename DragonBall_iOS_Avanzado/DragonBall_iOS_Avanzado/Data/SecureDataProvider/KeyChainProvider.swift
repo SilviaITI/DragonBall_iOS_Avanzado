@@ -25,11 +25,11 @@ final class KeyChainProvider {
     private let keyChain = KeychainSwift()
     
     // Mark: - Functions
-    func saveData(token: String) {
+    func save(token: String) {
         keyChain.set(token, forKey: Key.token)
     }
     
-    func getData() -> String? {
+    func getToken() -> String? {
         keyChain.get(Key.token)
     }
     

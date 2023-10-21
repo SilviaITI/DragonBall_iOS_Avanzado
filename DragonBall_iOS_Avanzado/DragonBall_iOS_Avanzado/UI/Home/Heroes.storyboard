@@ -1,30 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Heroes View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Heroes" id="Y6W-OH-hqX" customClass="HeroesViewController" customModule="DragonBall_iOS_Avanzado" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7hc-KO-3DS">
+                                <rect key="frame" x="8" y="131" width="377" height="687"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Gy-6A-gQk">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Vvz-PQ-YTo">
+                                        <rect key="frame" x="178" y="665" width="37" height="37"/>
+                                        <color key="color" systemColor="systemOrangeColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Vvz-PQ-YTo" secondAttribute="bottom" constant="150" id="X4g-eZ-geC"/>
+                                    <constraint firstItem="Vvz-PQ-YTo" firstAttribute="centerX" secondItem="3Gy-6A-gQk" secondAttribute="centerX" id="aBv-Ha-W4S"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7hc-KO-3DS" secondAttribute="trailing" constant="8" id="24n-JP-n0p"/>
+                            <constraint firstItem="3Gy-6A-gQk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5Ct-fh-bai"/>
+                            <constraint firstItem="3Gy-6A-gQk" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="6Lv-De-eeD"/>
+                            <constraint firstItem="3Gy-6A-gQk" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="BZi-fY-HEH"/>
+                            <constraint firstItem="7hc-KO-3DS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="72" id="IV8-B2-MJM"/>
+                            <constraint firstItem="7hc-KO-3DS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="nqO-2n-mnz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7hc-KO-3DS" secondAttribute="bottom" id="vdZ-Ck-T3j"/>
+                            <constraint firstAttribute="bottom" secondItem="3Gy-6A-gQk" secondAttribute="bottom" id="yE8-AO-9aj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loader" destination="Vvz-PQ-YTo" id="mAg-Q3-CVF"/>
+                        <outlet property="tableView" destination="7hc-KO-3DS" id="Pbi-kW-FgS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

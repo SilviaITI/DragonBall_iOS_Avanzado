@@ -6,9 +6,14 @@
 //
 
 import UIKit
-
-class HomeViewController: UIViewController {
-
+protocol HeroesViewControllerDelegate {
+    
+}
+class HeroesViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    
+    var viewModel: HeroesViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
 

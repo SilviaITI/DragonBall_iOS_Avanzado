@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6103B9E02AE39EF70023F497 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6103B9DE2AE39EF70023F497 /* CustomTableViewCell.swift */; };
+		6103B9E12AE39EF70023F497 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6103B9DF2AE39EF70023F497 /* CustomTableViewCell.xib */; };
 		619E1AA22AD98D020027F47C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E1AA12AD98D020027F47C /* AppDelegate.swift */; };
 		619E1AA42AD98D020027F47C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E1AA32AD98D020027F47C /* SceneDelegate.swift */; };
 		619E1AA62AD98D020027F47C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E1AA52AD98D020027F47C /* LoginViewController.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6103B9DE2AE39EF70023F497 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		6103B9DF2AE39EF70023F497 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		619E1A9E2AD98D020027F47C /* DragonBall_iOS_Avanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragonBall_iOS_Avanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619E1AA12AD98D020027F47C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619E1AA32AD98D020027F47C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6103B9DD2AE39ED70023F497 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6103B9DE2AE39EF70023F497 /* CustomTableViewCell.swift */,
+				6103B9DF2AE39EF70023F497 /* CustomTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		619E1A952AD98D020027F47C = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +236,7 @@
 		61DAD30E2AE2D79800FDF202 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6103B9DD2AE39ED70023F497 /* Cell */,
 				61DAD3192AE2E30500FDF202 /* Heroes.storyboard */,
 				61DAD31B2AE2E31500FDF202 /* HeroesViewModel.swift */,
 				61DAD31D2AE2E32100FDF202 /* HeroesViewController.swift */,
@@ -359,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				619E1AB12AD98D030027F47C /* LaunchScreen.storyboard in Resources */,
+				6103B9E12AE39EF70023F497 /* CustomTableViewCell.xib in Resources */,
 				61DAD31A2AE2E30500FDF202 /* Heroes.storyboard in Resources */,
 				619E1AAE2AD98D030027F47C /* Assets.xcassets in Resources */,
 				619E1AA92AD98D020027F47C /* Main.storyboard in Resources */,
@@ -398,6 +413,7 @@
 				61DAD3112AE2D7BE00FDF202 /* SplashViewController.swift in Sources */,
 				61DAD3222AE2E34300FDF202 /* DetailViewModel.swift in Sources */,
 				61DAD31E2AE2E32200FDF202 /* HeroesViewController.swift in Sources */,
+				6103B9E02AE39EF70023F497 /* CustomTableViewCell.swift in Sources */,
 				61DAD3292AE2E5EC00FDF202 /* KeyChainProvider.swift in Sources */,
 				619E1AAC2AD98D020027F47C /* DragonBall_iOS_Avanzado.xcdatamodeld in Sources */,
 				61DAD3152AE2D7E700FDF202 /* SplashViewModel.swift in Sources */,

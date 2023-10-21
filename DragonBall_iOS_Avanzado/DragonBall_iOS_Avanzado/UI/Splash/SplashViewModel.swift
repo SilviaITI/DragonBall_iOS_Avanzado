@@ -7,27 +7,28 @@
 import Foundation
 import KeychainSwift
 
+
 class SplashViewModel: SplashViewControllerDelegate {
     var viewState: ((SplashViewState) -> Void)
-    private let secureDataProvider: SecureDataProviderProtocol
+    private let keyChainProvider: KeyChainProviderProtocol
     private let apiProvider: ApiProviderProtocol
     
     // MARK: - Properties
   
     
-    var loginViewModel: LoginViewControllerDelegate {
+   lazy var loginViewModel: LoginViewControllerDelegate = {
         LoginViewModel(
             apiProvider: apiProvider,
-            secureDataProvider: secureDataProvider)
-    }
-    var heroesViewModel: HeroesViewControllerDelegate {
+            keyChainProvider: keyChainProvider)
+    }()
+   lazy var heroesViewModel: HeroesViewControllerDelegate = {
         HeroesViewModel(apiProvider: apiProvider,
-        secureDataProvider: secureDataProvider)
-    }
+                        keyChainProvider: keyChainProvider)
+    }()
     // Mark: Inicializers
     init(apiProvider: ApiProviderProtocol,
-         secureDataProvider: SecureDataProviderProtocol) {
-        self.secureDataProvider = secureDataProvider
+         keyChainProvider: KeyChainProviderProtocol) {
+        self.keyChainProvider = keyChainProvider
         self.apiProvider = apiProvider
       
     }
@@ -35,7 +36,7 @@ class SplashViewModel: SplashViewControllerDelegate {
     
     // Mark: public functions
     func onViewsAppear() {
-        if secureDataProvider.getToken() != nil {
+        if keyChainProvider.getData() != nil {
             self.viewState(.navigateToHome)
         } else {
             self.viewState(.navigateToLogin)

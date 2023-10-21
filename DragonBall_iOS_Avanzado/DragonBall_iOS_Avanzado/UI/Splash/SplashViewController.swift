@@ -7,15 +7,17 @@
 
 import UIKit
 import KeychainSwift
-class SplashViewController: UIViewController {
+
+
 
     // MARK: Protocol
     protocol SplashViewControllerDelegate {
-        func isTokenSaved()
+        func onViewsAppear()
         var heroesViewModel: HeroesViewControllerDelegate { get }
         var loginViewModel: LoginViewControllerDelegate { get }
         var viewState: ((SplashViewState) -> Void) { get set }
     }
+
     // MARK: Enum
     enum SplashViewState {
       
@@ -35,7 +37,7 @@ class SplashViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             setObservers()
-            viewModel?.isTokenSaved()
+            viewModel?.onViewsAppear()
         }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
@@ -74,4 +76,4 @@ class SplashViewController: UIViewController {
             }
         }
     }
-}
+

@@ -10,7 +10,7 @@ import UIKit
 // Mark: - Protocol
 protocol LoginViewControllerDelegate {
     var viewState: ((LoginViewState) -> Void)? {get set}
-    func loginButtonAction(email: String?, password: String?)
+    func onLoginPressed(email: String?, password: String?)
 }
 
 enum LoginViewState {
@@ -40,8 +40,8 @@ class LoginViewController: UIViewController {
     }
     
     // Marj
-    @IBAction func loginButtonAction() {
-        viewModel?.loginButtonAction(
+    @IBAction func onLoginPressed() {
+        viewModel?.onLoginPressed(
             email: emailTextfield.text ?? "",
     password: passwordTextfield.text ?? "")
     }
@@ -80,7 +80,6 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
     
 }
 
