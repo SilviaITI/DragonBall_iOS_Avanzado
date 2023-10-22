@@ -17,57 +17,57 @@ import UIKit
         //func getHeroes(by name: String?, token: String, completion: ((Heroes) -> Void)?)
     }
 
-    class ApiProvider: ApiProviderProtocol {
-        // MARK: - Constants -
-        static private let baseURL = "https://dragonball.keepcoding.education/api"
-        private enum Endpoint {
-            static let login = "/auth/login"
-            static let heroes = "/heros/all"
+class ApiProvider: ApiProviderProtocol {
+    // MARK: - Constants -
+    static private let baseURL = "https://dragonball.keepcoding.education/api"
+    private enum Endpoint {
+        static let login = "/auth/login"
+        static let heroes = "/heros/all"
+    }
+    
+    // MARK: - ApiProviderProtocol -
+    func login(for user: String, with password: String) {
+        guard let url = URL(string: "\(ApiProvider.baseURL)\(Endpoint.login)") else {
+            // TODO: Enviar notificación indicando el error
+            return
         }
-
-        // MARK: - ApiProviderProtocol -
-        func login(for user: String, with password: String) {
-            guard let url = URL(string: "\(ApiProvider.baseURL)\(Endpoint.login)") else {
+        
+        guard let loginData = String(format: "%@:%@",
+                                     user, password).data(using: .utf8)?.base64EncodedString() else {
+            // TODO: Enviar notificación indicando el error
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("Basic \(loginData)",
+                            forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
                 // TODO: Enviar notificación indicando el error
                 return
             }
-
-            guard let loginData = String(format: "%@:%@",
-                                         user, password).data(using: .utf8)?.base64EncodedString() else {
-                // TODO: Enviar notificación indicando el error
+            
+            guard let data,
+                  (response as? HTTPURLResponse)?.statusCode == 200 else {
+                // TODO: Enviar notificación indicando response error
                 return
             }
-
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = "POST"
-            urlRequest.setValue("Basic \(loginData)",
-                                forHTTPHeaderField: "Authorization")
-
-            URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-                guard error == nil else {
-                    // TODO: Enviar notificación indicando el error
-                    return
-                }
-
-                guard let data,
-                      (response as? HTTPURLResponse)?.statusCode == 200 else {
-                    // TODO: Enviar notificación indicando response error
-                    return
-                }
-
-                guard let responseData = String(data: data, encoding: .utf8) else {
-                    // TODO: Enviar notificación indicando response vacío
-                    return
-                }
-
-                NotificationCenter.default.post(
-                    name: NotificationCenter.apiLoginNotification,
-                    object: nil,
-                    userInfo: [NotificationCenter.tokenKey: responseData]
-                )
-            }.resume()
-        }
-
+            
+            guard let responseData = String(data: data, encoding: .utf8) else {
+                // TODO: Enviar notificación indicando response vacío
+                return
+            }
+            
+            NotificationCenter.default.post(
+                name: NotificationCenter.apiLoginNotification,
+                object: nil,
+                userInfo: [NotificationCenter.tokenKey: responseData]
+            )
+        }.resume()
+    }
+}
 //        func getHeroes(by name: String?, token: String, completion: ((Heroes) -> Void)?) {
 //            guard let url = URL(string: "\(ApiProvider.baseURL)\(Endpoint.heroes)") else {
 //                // TODO: Enviar notificación indicando el error

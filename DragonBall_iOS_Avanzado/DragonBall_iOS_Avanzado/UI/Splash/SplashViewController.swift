@@ -15,12 +15,12 @@ import KeychainSwift
         func onViewsAppear()
         var heroesViewModel: HeroesViewControllerDelegate { get }
         var loginViewModel: LoginViewControllerDelegate { get }
-        var viewState: ((SplashViewState) -> Void) { get set }
+        var viewState: ((SplashViewState) -> Void)? { get set }
     }
 
     // MARK: Enum
     enum SplashViewState {
-      
+        case isLoading(loading: Bool)
         case navigateToHome
         case navigateToLogin
         // falta onViewsAppear que sería isTokenSaved
@@ -69,6 +69,8 @@ import KeychainSwift
                         self?.performSegue(withIdentifier: "SPLASH_TO_LOGIN",
                                            sender: nil)
                         
+                    case .isLoading(loading: let loading):
+                        print(loading)
                     }
                     
                     

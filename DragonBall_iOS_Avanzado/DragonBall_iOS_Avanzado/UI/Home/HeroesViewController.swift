@@ -7,13 +7,19 @@
 
 import UIKit
 protocol HeroesViewControllerDelegate {
-    
+    var viewState: ((HeroesViewState) -> Void)? {get set}
+}
+enum HeroesViewState {
+    case loading(_ isLoading: Bool)
+    case navigateToDetail
 }
 class HeroesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
+  
     var viewModel: HeroesViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

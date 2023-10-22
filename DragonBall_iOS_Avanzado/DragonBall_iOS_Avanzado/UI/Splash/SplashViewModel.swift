@@ -7,39 +7,43 @@
 import Foundation
 import KeychainSwift
 
-
 class SplashViewModel: SplashViewControllerDelegate {
-    var viewState: ((SplashViewState) -> Void)
+    var viewState: ((SplashViewState) -> Void)?
     private let keyChainProvider: KeyChainProviderProtocol
     private let apiProvider: ApiProviderProtocol
+
+
+    lazy var loginViewModel: LoginViewControllerDelegate = {
+            LoginViewModel(
+                apiProvider: apiProvider,
+                keyChainProvider: keyChainProvider
+            )
+        }()
+
+    lazy var heroesViewModel: HeroesViewControllerDelegate = {
+            HeroesViewModel(
+                apiProvider: apiProvider,
+                keyChainProvider: keyChainProvider
+            )
+        }()
     
-    // MARK: - Properties
-  
-    
-   lazy var loginViewModel: LoginViewControllerDelegate = {
-        LoginViewModel(
-            apiProvider: apiProvider,
-            keyChainProvider: keyChainProvider)
-    }()
-   lazy var heroesViewModel: HeroesViewControllerDelegate = {
-        HeroesViewModel(apiProvider: apiProvider,
-                        keyChainProvider: keyChainProvider)
-    }()
-    // Mark: Inicializers
-    init(apiProvider: ApiProviderProtocol,
-         keyChainProvider: KeyChainProviderProtocol) {
+    init(apiProvider: ApiProviderProtocol, keyChainProvider: KeyChainProviderProtocol) {
         self.keyChainProvider = keyChainProvider
         self.apiProvider = apiProvider
-      
+        
+ 
     }
     
-    
-    // Mark: public functions
+    private var isTokenSaved: Bool {
+        keyChainProvider.getData()?.isEmpty == false
+    }
+
     func onViewsAppear() {
-        if keyChainProvider.getData() != nil {
-            self.viewState(.navigateToHome)
-        } else {
-            self.viewState(.navigateToLogin)
+        viewState?(.isLoading(loading: true))
+        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(3)) {
+            self.isTokenSaved ? self.viewState?(.navigateToHome) : self.viewState?(.navigateToLogin)
         }
+        
     }
-}
+        
+    }

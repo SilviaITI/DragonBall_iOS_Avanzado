@@ -11,6 +11,7 @@ import UIKit
 protocol LoginViewControllerDelegate {
     var viewState: ((LoginViewState) -> Void)? {get set}
     func onLoginPressed(email: String?, password: String?)
+    var heroesViewModel: HeroesViewControllerDelegate { get }
 }
 
 // MARK: - Enum state
@@ -68,6 +69,14 @@ class LoginViewController: UIViewController {
             target: self,
             action: #selector(dismissKeyBoard)))
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
+   
+        guard segue.identifier == "LOGIN_TO_HEROES",
+              let heroesViewController = segue.destination as? HeroesViewController else {
+            return
+        }
+        heroesViewController.viewModel = viewModel?.heroesViewModel
+    }
     
     private func setObservers() {
         viewModel?.viewState = { state in
@@ -87,7 +96,8 @@ class LoginViewController: UIViewController {
                 break
             case .navigateToHeroes:
                 self.loadingView.isHidden = true
-                
+                self.performSegue(withIdentifier: "LOGIN_TO_HEROES",
+                                   sender: nil)
                 break
             }
         }

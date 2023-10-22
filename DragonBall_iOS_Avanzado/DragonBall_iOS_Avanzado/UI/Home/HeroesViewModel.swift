@@ -6,3 +6,18 @@
 //
 
 import Foundation
+class HeroesViewModel: HeroesViewControllerDelegate {
+    // MARK: - Dependencies
+    private let apiProvider: ApiProviderProtocol
+    private let keyChainProvider: KeyChainProviderProtocol
+    // MARK: - Properties
+    var viewState: ((HeroesViewState) -> Void)?
+    
+    init(apiProvider: ApiProviderProtocol, keyChainProvider: KeyChainProviderProtocol) {
+        self.apiProvider = apiProvider
+        self.keyChainProvider = keyChainProvider
+        
+    }
+   
+    
+}

@@ -115,11 +115,22 @@
                         <outlet property="loadingView" destination="l2S-kM-BmI" id="7es-NW-70F"/>
                         <outlet property="passwordLabelError" destination="j5J-SX-uBh" id="dBf-26-9IU"/>
                         <outlet property="passwordTextfield" destination="O9G-p2-aGt" id="1pT-S6-fRC"/>
+                        <segue destination="Rve-ia-iMG" kind="show" identifier="NAVIGATE_TO_HEROES" id="42i-1A-AsM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
+        </scene>
+        <!--Heroes-->
+        <scene sceneID="nsP-cA-MZq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Heroes" id="Rve-ia-iMG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wIc-sl-MGJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zd1-uV-aha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="-10"/>
         </scene>
     </scenes>
     <resources>

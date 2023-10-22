@@ -9,15 +9,17 @@ import Foundation
 
 class LoginViewModel: LoginViewControllerDelegate {
   
-    
     // MARK: - Dependencies
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
 
     // MARK: - Properties
     var viewState: ((LoginViewState) -> Void)?
-    
-
+  
+    var heroesViewModel: HeroesViewControllerDelegate {
+        HeroesViewModel(apiProvider: apiProvider,
+                        keyChainProvider: keyChainProvider)
+    }
     // MARK: - Initializers
     init(
         apiProvider: ApiProviderProtocol,
