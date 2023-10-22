@@ -7,58 +7,68 @@
 
 import UIKit
 
-// Mark: - Protocol
+// MARK: - Protocol
 protocol LoginViewControllerDelegate {
     var viewState: ((LoginViewState) -> Void)? {get set}
     func onLoginPressed(email: String?, password: String?)
 }
 
+// MARK: - Enum state
 enum LoginViewState {
     case loading(_ isLoading: Bool)
     case showErrorEmail(_ error: String?)
     case showErrorPassword (_ error: String?)
     case navigateToHeroes
 }
+// MARK: - Class
 class LoginViewController: UIViewController {
-
-    //Mark: - Outlets
+    
+    //MARK: - Outlets
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var emailLabelError: UILabel!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var passwordLabelError: UILabel!
     @IBOutlet weak var loadingView: UIView!
     
-    //Mark: - Properties
+    //MARK: - Properties
     var viewModel: LoginViewControllerDelegate?
     
-    //Mark: - LyfeCycle
+    // MARK: - Enum textField
+    private enum FieldType {
+        static let email = 0
+        static let password = 1
+    }
+    
+    //MARK: - LyfeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
         setObservers()
-        // Do any additional setup after loading the view.
     }
     
-    // Marj
+    // MARK: - public functions
     @IBAction func onLoginPressed() {
         viewModel?.onLoginPressed(
             email: emailTextfield.text ?? "",
-    password: passwordTextfield.text ?? "")
+            password: passwordTextfield.text ?? "")
     }
- 
+    
+    @objc func dismissKeyBoard() {
+        view.endEditing(true)
+    }
+    
+    // MARK: - private functions
     private func setViews(){
         emailTextfield.delegate = self
-        emailTextfield.tag = 0
+        emailTextfield.tag = FieldType.email
         passwordTextfield.delegate = self
-        passwordTextfield.tag = 0
+        passwordTextfield.tag = FieldType.password
         
         view.addGestureRecognizer(UITapGestureRecognizer(
             target: self,
             action: #selector(dismissKeyBoard)))
     }
-   @objc func dismissKeyBoard() {
-       view.endEditing(true)
-    }
+    
     private func setObservers() {
         viewModel?.viewState = { state in
             switch state{
@@ -76,34 +86,24 @@ class LoginViewController: UIViewController {
             case .showErrorPassword(let error):
                 break
             case .navigateToHeroes:
+                self.loadingView.isHidden = true
+                
                 break
             }
         }
     }
-    
 }
-
+ 
+// MARK: - Extension
 extension LoginViewController: UITextFieldDelegate {
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        if emailTextfield == textField {
-//            emailLabelError.isHidden = true
-//        } else if passwordTextfield ==  textField {
-//            passwordLabelError.isHidden = true
-//        }
-//    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        switch reason {
-        case .committed:
-          if  emailTextfield == textField {
-                emailLabelError.isHidden = true
-            }
-           if passwordTextfield == textField {
-                passwordLabelError.isHidden = true
-            }
-        @unknown default:
-            print("Error al introducir los datos")
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == FieldType.email {
+            emailLabelError.isHidden = true
+        } else if textField.tag == FieldType.password{
+            passwordLabelError.isHidden = true
         }
     }
 }
+
+
 

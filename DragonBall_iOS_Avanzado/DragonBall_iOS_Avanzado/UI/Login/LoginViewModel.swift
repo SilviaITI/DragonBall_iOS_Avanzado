@@ -10,15 +10,15 @@ import Foundation
 class LoginViewModel: LoginViewControllerDelegate {
   
     
-    // MARK: - Dependencies -
+    // MARK: - Dependencies
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
 
-    // MARK: - Properties -
+    // MARK: - Properties
     var viewState: ((LoginViewState) -> Void)?
     
 
-    // MARK: - Initializers -
+    // MARK: - Initializers
     init(
         apiProvider: ApiProviderProtocol,
         keyChainProvider: KeyChainProviderProtocol
@@ -38,7 +38,7 @@ class LoginViewModel: LoginViewControllerDelegate {
         NotificationCenter.default.removeObserver(self)
     }
 
-    // MARK: - Public functions -
+    // MARK: - Public functions
     func onLoginPressed(email: String?, password: String?) {
         viewState?(.loading(true))
 
@@ -64,15 +64,13 @@ class LoginViewModel: LoginViewControllerDelegate {
 
     @objc func onLoginResponse(_ notification: Notification) {
         defer { viewState?(.loading(false)) }
-
-        // Parsear resultado que vendrá en notification.userInfo
         guard let token = notification.userInfo?[NotificationCenter.tokenKey] as? String,
               !token.isEmpty else {
             return
         }
 
-        secureDataProvider.save(token: token)
-        viewState?(.navigateToNext)
+        keyChainProvider.saveData(token: token)
+        viewState?(.navigateToHeroes)
     }
 
     // MARK: - Private functions -
