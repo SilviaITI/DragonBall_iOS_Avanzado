@@ -71,7 +71,7 @@ class LoginViewModel: LoginViewControllerDelegate {
             return
         }
 
-        keyChainProvider.saveData(token: token)
+        keyChainProvider.save(token: token)
         viewState?(.navigateToHeroes)
     }
 

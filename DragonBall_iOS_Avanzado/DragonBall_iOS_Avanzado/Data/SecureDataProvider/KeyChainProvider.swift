@@ -10,12 +10,14 @@ import KeychainSwift
 
 // Mark: - Protocol
 protocol KeyChainProviderProtocol {
-    func saveData(token: String)
-    func getData() -> String?
+    func save(token: String)
+    func getToken() -> String?
 }
 
 // Mark: - Class
-final class KeyChainProvider {
+final class KeyChainProvider: KeyChainProviderProtocol {
+  
+    
     // Mark: - Enum
     private enum Key {
         static let token = "KEY_KEYCHAIN_TOKEN"

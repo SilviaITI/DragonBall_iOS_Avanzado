@@ -13,7 +13,7 @@ import KeychainSwift
     // MARK: Protocol
     protocol SplashViewControllerDelegate {
         func onViewsAppear()
-        var heroesViewModel: HeroesViewControllerDelegate { get }
+        //var heroesViewModel: HeroesViewControllerDelegate { get }
         var loginViewModel: LoginViewControllerDelegate { get }
         var viewState: ((SplashViewState) -> Void)? { get set }
     }
@@ -38,22 +38,32 @@ import KeychainSwift
             super.viewDidLoad()
             setObservers()
             viewModel?.onViewsAppear()
+           
         }
+        // comprobar si tengo que borrar
+        override func viewWillAppear(_ animated: Bool) {
+             super.viewWillAppear(animated)
+
+             navigationController?.setNavigationBarHidden(true, animated: animated)
+         }
         
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
-            guard segue.identifier == "SPLASH_TO_LOGIN",
-                  let loginViewController = segue.destination as? LoginViewController else {
-                return
+      
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            switch segue.identifier {
+                case "SPLASH_TO_LOGIN":
+                    guard let loginViewController = segue.destination as? LoginViewController else { return }
+                    loginViewController.viewModel = viewModel?.loginViewModel
+
+//                case "SPLASH_TO_HEROES":
+//                    guard let heroesViewController = segue.destination as? HeroesViewController else { return }
+//                    heroesViewController.viewModel = viewModel?.heroesViewModel
+
+                default:
+                    break
             }
-            
-            guard segue.identifier == "SPLASH_TO_HEROES",
-                  let heroesViewController = segue.destination as? HeroesViewController else {
-                return
-            }
-            
-            loginViewController.viewModel = viewModel?.loginViewModel
-            heroesViewController.viewModel = viewModel?.heroesViewModel
         }
+            
+        
         
         // MARK: Public functions
         //
@@ -62,15 +72,17 @@ import KeychainSwift
                 DispatchQueue.main.async {
                     switch state {
                         
-                    case .navigateToHome:
-                        self?.performSegue(withIdentifier: "SPLASH_TO_HEROES",
-                                           sender: nil)
+//                    case .navigateToHome:
+//                        self?.performSegue(withIdentifier: "SPLASH_TO_HEROES",
+//                                           sender: nil)
                     case .navigateToLogin:
                         self?.performSegue(withIdentifier: "SPLASH_TO_LOGIN",
                                            sender: nil)
                         
                     case .isLoading(loading: let loading):
                         print(loading)
+                    case .navigateToHome:
+                        print("hola")
                     }
                     
                     

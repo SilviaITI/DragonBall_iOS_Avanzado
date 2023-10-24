@@ -15,12 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func scene(scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         let storyboard = UIStoryboard(name: "Splash", bundle: nil)
         let rootViewController = storyboard.instantiateViewController(withIdentifier: "SplashViewController") as? SplashViewController
         let keyChainProvider = KeyChainProvider()
         rootViewController?.viewModel = SplashViewModel(
             apiProvider: ApiProvider(),
-            keyChainProvider: keyChainProvider as! KeyChainProviderProtocol
+            keyChainProvider: keyChainProvider
         )
 
         window = UIWindow(windowScene: windowScene)
