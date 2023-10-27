@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6103B9E02AE39EF70023F497 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6103B9DE2AE39EF70023F497 /* CustomTableViewCell.swift */; };
 		6103B9E12AE39EF70023F497 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6103B9DF2AE39EF70023F497 /* CustomTableViewCell.xib */; };
+		61854D6F2AEC229D00C57E57 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61854D6E2AEC229D00C57E57 /* HeroesViewController.swift */; };
+		61854D712AEC23CB00C57E57 /* HeroesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61854D702AEC23CB00C57E57 /* HeroesViewModel.swift */; };
+		61854D752AEC24D000C57E57 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61854D742AEC24D000C57E57 /* Hero.swift */; };
+		61854D782AEC267600C57E57 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 61854D772AEC267600C57E57 /* Kingfisher */; };
 		619E1AA22AD98D020027F47C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E1AA12AD98D020027F47C /* AppDelegate.swift */; };
 		619E1AA42AD98D020027F47C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E1AA32AD98D020027F47C /* SceneDelegate.swift */; };
 		619E1AA62AD98D020027F47C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E1AA52AD98D020027F47C /* LoginViewController.swift */; };
@@ -52,6 +56,9 @@
 /* Begin PBXFileReference section */
 		6103B9DE2AE39EF70023F497 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6103B9DF2AE39EF70023F497 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		61854D6E2AEC229D00C57E57 /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
+		61854D702AEC23CB00C57E57 /* HeroesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewModel.swift; sourceTree = "<group>"; };
+		61854D742AEC24D000C57E57 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		619E1A9E2AD98D020027F47C /* DragonBall_iOS_Avanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragonBall_iOS_Avanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619E1AA12AD98D020027F47C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619E1AA32AD98D020027F47C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61854D782AEC267600C57E57 /* Kingfisher in Frameworks */,
 				61DAD3272AE2E3F600FDF202 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +121,22 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		61854D722AEC24BC00C57E57 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				61854D732AEC24C200C57E57 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		61854D732AEC24C200C57E57 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				61854D742AEC24D000C57E57 /* Hero.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		619E1A952AD98D020027F47C = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +162,7 @@
 		619E1AA02AD98D020027F47C /* DragonBall_iOS_Avanzado */ = {
 			isa = PBXGroup;
 			children = (
+				61854D722AEC24BC00C57E57 /* Domain */,
 				619E1AD62AD98D3D0027F47C /* Data */,
 				619E1AD52AD98D310027F47C /* Resources */,
 				619E1AD42AD98D240027F47C /* UI */,
@@ -234,6 +259,8 @@
 			children = (
 				6103B9DD2AE39ED70023F497 /* Cell */,
 				61DAD3192AE2E30500FDF202 /* Heroes.storyboard */,
+				61854D6E2AEC229D00C57E57 /* HeroesViewController.swift */,
+				61854D702AEC23CB00C57E57 /* HeroesViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -274,6 +301,7 @@
 			name = DragonBall_iOS_Avanzado;
 			packageProductDependencies = (
 				61DAD3262AE2E3F600FDF202 /* KeychainSwift */,
+				61854D772AEC267600C57E57 /* Kingfisher */,
 			);
 			productName = DragonBall_iOS_Avanzado;
 			productReference = 619E1A9E2AD98D020027F47C /* DragonBall_iOS_Avanzado.app */;
@@ -349,6 +377,7 @@
 			mainGroup = 619E1A952AD98D020027F47C;
 			packageReferences = (
 				61DAD3252AE2E3F600FDF202 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				61854D762AEC267600C57E57 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 619E1A9F2AD98D020027F47C /* Products */;
 			projectDirPath = "";
@@ -402,12 +431,15 @@
 				619E1AA22AD98D020027F47C /* AppDelegate.swift in Sources */,
 				619E1AA42AD98D020027F47C /* SceneDelegate.swift in Sources */,
 				619E1ADD2AD99E4A0027F47C /* ApiProvider.swift in Sources */,
+				61854D752AEC24D000C57E57 /* Hero.swift in Sources */,
 				619E1ADB2AD9963C0027F47C /* LoginViewModel.swift in Sources */,
+				61854D712AEC23CB00C57E57 /* HeroesViewModel.swift in Sources */,
 				61DAD3112AE2D7BE00FDF202 /* SplashViewController.swift in Sources */,
 				61DAD3222AE2E34300FDF202 /* DetailViewModel.swift in Sources */,
 				6103B9E02AE39EF70023F497 /* CustomTableViewCell.swift in Sources */,
 				61DAD3292AE2E5EC00FDF202 /* KeyChainProvider.swift in Sources */,
 				619E1AAC2AD98D020027F47C /* DragonBall_iOS_Avanzado.xcdatamodeld in Sources */,
+				61854D6F2AEC229D00C57E57 /* HeroesViewController.swift in Sources */,
 				61DAD3152AE2D7E700FDF202 /* SplashViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -750,6 +782,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		61854D762AEC267600C57E57 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		61DAD3252AE2E3F600FDF202 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -761,6 +801,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		61854D772AEC267600C57E57 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61854D762AEC267600C57E57 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		61DAD3262AE2E3F600FDF202 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61DAD3252AE2E3F600FDF202 /* XCRemoteSwiftPackageReference "keychain-swift" */;

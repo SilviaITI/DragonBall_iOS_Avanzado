@@ -50,7 +50,7 @@
                     </view>
                     <connections>
                         <outlet property="loader" destination="Vvz-PQ-YTo" id="mAg-Q3-CVF"/>
-                        <outlet property="tableView" destination="7hc-KO-3DS" id="Pbi-kW-FgS"/>
+                        <outlet property="tableView" destination="7hc-KO-3DS" id="14K-D4-xnL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

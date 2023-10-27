@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
 //        }
 //        heroesViewController.viewModel = viewModel?.heroesViewModel
 //    }
-//    
+  }
     private func setObservers() {
         viewModel?.viewState = { state in
             switch state{

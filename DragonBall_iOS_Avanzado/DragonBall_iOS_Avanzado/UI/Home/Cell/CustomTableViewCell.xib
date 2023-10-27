@@ -1,21 +1,85 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CustomTableViewCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="246" id="KGk-i7-Jjw" customClass="CustomTableViewCell" customModule="DragonBall_iOS_Avanzado" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="404" height="246"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="404" height="246"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-SI-fms">
+                        <rect key="frame" x="8" y="4" width="388" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="m6D-1x-8II"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-eV-0vx">
+                        <rect key="frame" x="8" y="28" width="200" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="IXP-aa-nG6"/>
+                            <constraint firstAttribute="height" constant="200" id="dti-Wr-QR8"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Quk-g7-iQv">
+                        <rect key="frame" x="216" y="28" width="180" height="200"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="VX2-Pr-h9H"/>
+                            <constraint firstAttribute="width" constant="180" id="loa-bc-iEM"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgM-Tq-5en">
+                        <rect key="frame" x="0.0" y="0.0" width="404" height="246"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OS9-eV-0vx" firstAttribute="top" secondItem="MLc-SI-fms" secondAttribute="bottom" constant="8" id="0Jv-lm-V1a"/>
+                    <constraint firstAttribute="trailing" secondItem="MLc-SI-fms" secondAttribute="trailing" constant="8" id="0xb-jX-oXs"/>
+                    <constraint firstAttribute="trailing" secondItem="GgM-Tq-5en" secondAttribute="trailing" id="22Z-Kb-5L3"/>
+                    <constraint firstItem="OS9-eV-0vx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="3av-jB-rpK"/>
+                    <constraint firstItem="MLc-SI-fms" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="45p-RT-xNA"/>
+                    <constraint firstItem="GgM-Tq-5en" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HOo-O0-Qmo"/>
+                    <constraint firstAttribute="bottom" secondItem="GgM-Tq-5en" secondAttribute="bottom" id="IiI-hw-nAv"/>
+                    <constraint firstItem="MLc-SI-fms" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="fke-wg-pMg"/>
+                    <constraint firstItem="Quk-g7-iQv" firstAttribute="leading" secondItem="OS9-eV-0vx" secondAttribute="trailing" constant="8" symbolic="YES" id="nWF-G3-ihj"/>
+                    <constraint firstItem="Quk-g7-iQv" firstAttribute="top" secondItem="MLc-SI-fms" secondAttribute="bottom" constant="8" symbolic="YES" id="tPa-xn-0ov"/>
+                    <constraint firstItem="GgM-Tq-5en" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yLO-U4-hTa"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="GgM-Tq-5en" id="U9P-Jt-q5y"/>
+                <outlet property="descriptionText" destination="Quk-g7-iQv" id="A6Z-JV-mbB"/>
+                <outlet property="heroImage" destination="OS9-eV-0vx" id="jy6-kW-14W"/>
+                <outlet property="nameLabel" destination="MLc-SI-fms" id="512-8S-p9Y"/>
+            </connections>
+            <point key="canvasLocation" x="97.70992366412213" y="91.549295774647888"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
