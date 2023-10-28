@@ -17,8 +17,7 @@ class LoginViewModel: LoginViewControllerDelegate {
     var viewState: ((LoginViewState) -> Void)?
   
     var heroesViewModel: HeroesViewControllerDelegate {
-        HeroesViewModel(apiProvider: apiProvider,
-                        keyChainProvider: keyChainProvider)
+        HeroesViewModel.self as! HeroesViewModel
     }
     // MARK: - Initializers
     init(

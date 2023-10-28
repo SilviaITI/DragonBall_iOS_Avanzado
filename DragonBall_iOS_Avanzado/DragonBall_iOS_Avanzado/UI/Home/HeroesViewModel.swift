@@ -6,6 +6,6 @@
 //
 
 import Foundation
-class HeroViewModel: HeroesViewControllerDelegate {
+class HeroesViewModel: HeroesViewControllerDelegate {
     
 }
