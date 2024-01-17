@@ -8,13 +8,16 @@
 import Foundation
 class LoginViewModel: LoginViewControllerDelegate {
     private let apiProvider: ApiProviderProtocol
+    private let keyChainProvider: KeyChainProviderProtocol
     
   
     // MARK: - Properties -
     var viewState: ((LoginViewState) -> Void)?
   
-    init(apiProvider: ApiProviderProtocol) {
+    init(apiProvider: ApiProviderProtocol,
+         keyChainProvider: KeyChainProviderProtocol) {
         self.apiProvider = apiProvider
+        self.keyChainProvider = keyChainProvider
         
     }
     //MARK: - Functions

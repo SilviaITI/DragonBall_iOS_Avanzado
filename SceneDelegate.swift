@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
         let login = LoginViewController()
-        login.viewModel = LoginViewModel(apiProvider: ApiProvider())
+        login.viewModel = LoginViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider())
         let navigationController = UINavigationController(rootViewController: login)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
