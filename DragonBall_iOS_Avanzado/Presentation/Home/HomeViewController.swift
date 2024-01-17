@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableHeros: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
     
+    //MARK: - Lyfecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
