@@ -13,17 +13,24 @@ class LoginViewModel: LoginViewControllerDelegate {
   
     // MARK: - Properties -
     var viewState: ((LoginViewState) -> Void)?
-  
+    var token: String = ""
     init(apiProvider: ApiProviderProtocol,
          keyChainProvider: KeyChainProviderProtocol) {
         self.apiProvider = apiProvider
         self.keyChainProvider = keyChainProvider
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onLoginResponse),
+            name: Notification.Name("NOTIFICATION_API_LOGIN"),
+            object: nil
+        )
+        
     }
     //MARK: - Functions
     func onLoginPressed(email: String?, password: String?) {
         viewState?(.loading(true))
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { [self] in
             guard self.isValidEmail(email: email) else {
                 self.viewState?(.loading(false))
                 self.viewState?(.showErrorEmail("Indique un email válido"))
@@ -38,9 +45,12 @@ class LoginViewModel: LoginViewControllerDelegate {
                 email: email ?? "",
                 password: password ?? ""
             )
+            self.keyChainProvider.save(token: token)
         }
     }
-    
+    @objc func onLoginResponse(_ notification: Notification) {
+        
+    }
     
     private func isValidEmail(email: String?) -> Bool {
         email?.isEmpty == false && (email?.contains("@") ?? false && (email?.contains(".")) ?? false)

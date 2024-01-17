@@ -27,6 +27,7 @@
 		61C458352B53EBB40024E122 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C458342B53EBB40024E122 /* LoginViewModel.swift */; };
 		61C458382B5400CB0024E122 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 61C458372B5400CB0024E122 /* KeychainSwift */; };
 		61C4583A2B5401700024E122 /* KeyChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C458392B5401700024E122 /* KeyChainProvider.swift */; };
+		61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F19EE12B57CE0500E20323 /* DataTestProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		61C458312B53E0720024E122 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		61C458342B53EBB40024E122 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		61C458392B5401700024E122 /* KeyChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainProvider.swift; sourceTree = "<group>"; };
+		61F19EE12B57CE0500E20323 /* DataTestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTestProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		61C458242B53DF330024E122 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				61F19EE02B57CDDA00E20323 /* DataTestProvider */,
 				61C458272B53DF530024E122 /* Models */,
 				61C458262B53DF440024E122 /* ApiProvider */,
 				61C458252B53DF3D0024E122 /* Local */,
@@ -245,6 +248,14 @@
 				61C457FA2B53DEA20024E122 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		61F19EE02B57CDDA00E20323 /* DataTestProvider */ = {
+			isa = PBXGroup;
+			children = (
+				61F19EE12B57CE0500E20323 /* DataTestProvider.swift */,
+			);
+			path = DataTestProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +402,7 @@
 				61C458352B53EBB40024E122 /* LoginViewModel.swift in Sources */,
 				61C457F12B53DEA00024E122 /* SceneDelegate.swift in Sources */,
 				61557D192B558A980049A1BD /* Hero.swift in Sources */,
+				61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */,
 				61557D1B2B558AB70049A1BD /* HeroLocations.swift in Sources */,
 				61C4583A2B5401700024E122 /* KeyChainProvider.swift in Sources */,
 				61C458322B53E0720024E122 /* LoginViewController.swift in Sources */,
