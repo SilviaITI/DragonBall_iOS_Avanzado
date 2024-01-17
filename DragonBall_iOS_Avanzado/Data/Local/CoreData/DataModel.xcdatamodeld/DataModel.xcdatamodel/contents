@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B81" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="HeroDao" representedClassName="HeroDao" syncable="YES">
+        <attribute name="descriptionHero" optional="YES" attributeType="String"/>
+        <attribute name="favorite" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="LocationDao" representedClassName="LocationDao" syncable="YES">
+        <attribute name="dateShow" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="latitud" optional="YES" attributeType="String"/>
+        <attribute name="longitud" optional="YES" attributeType="String"/>
+    </entity>
+</model>

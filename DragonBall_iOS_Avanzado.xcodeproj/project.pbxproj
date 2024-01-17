@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		614966702B583A12003F292B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149666F2B583A12003F292B /* CoreDataManager.swift */; };
+		614966722B583C5E003F292B /* HeroDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614966712B583C5E003F292B /* HeroDao.swift */; };
+		614966752B583CAC003F292B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 614966742B583CAC003F292B /* Kingfisher */; };
+		6149667E2B5842C9003F292B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6149667C2B5842C9003F292B /* DataModel.xcdatamodeld */; };
+		614966802B58443C003F292B /* LocationDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149667F2B58443C003F292B /* LocationDao.swift */; };
 		61557D152B5581930049A1BD /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D142B5581930049A1BD /* ApiProvider.swift */; };
 		61557D172B5581AC0049A1BD /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D162B5581AC0049A1BD /* LaunchViewModel.swift */; };
 		61557D192B558A980049A1BD /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D182B558A980049A1BD /* Hero.swift */; };
@@ -15,7 +20,6 @@
 		61557D202B559F3B0049A1BD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61557D1E2B559F3B0049A1BD /* HomeViewController.xib */; };
 		61C457EF2B53DEA00024E122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C457EE2B53DEA00024E122 /* AppDelegate.swift */; };
 		61C457F12B53DEA00024E122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C457F02B53DEA00024E122 /* SceneDelegate.swift */; };
-		61C457F92B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61C457F72B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodeld */; };
 		61C457FB2B53DEA20024E122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C457FA2B53DEA20024E122 /* Assets.xcassets */; };
 		61C458092B53DEA20024E122 /* DragonBall_iOS_AvanzadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C458082B53DEA20024E122 /* DragonBall_iOS_AvanzadoTests.swift */; };
 		61C458132B53DEA20024E122 /* DragonBall_iOS_AvanzadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C458122B53DEA20024E122 /* DragonBall_iOS_AvanzadoUITests.swift */; };
@@ -48,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6149666F2B583A12003F292B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		614966712B583C5E003F292B /* HeroDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDao.swift; sourceTree = "<group>"; };
+		6149667D2B5842C9003F292B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		6149667F2B58443C003F292B /* LocationDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDao.swift; sourceTree = "<group>"; };
 		61557D142B5581930049A1BD /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		61557D162B5581AC0049A1BD /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		61557D182B558A980049A1BD /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
@@ -57,7 +65,6 @@
 		61C457EB2B53DEA00024E122 /* DragonBall_iOS_Avanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragonBall_iOS_Avanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C457EE2B53DEA00024E122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61C457F02B53DEA00024E122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		61C457F82B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DragonBall_iOS_Avanzado.xcdatamodel; sourceTree = "<group>"; };
 		61C457FA2B53DEA20024E122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61C457FF2B53DEA20024E122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61C458042B53DEA20024E122 /* DragonBall_iOS_AvanzadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonBall_iOS_AvanzadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614966752B583CAC003F292B /* Kingfisher in Frameworks */,
 				61C458382B5400CB0024E122 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +108,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		614966762B584166003F292B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		614966812B584441003F292B /* LocalModels */ = {
+			isa = PBXGroup;
+			children = (
+				6149667F2B58443C003F292B /* LocationDao.swift */,
+				614966712B583C5E003F292B /* HeroDao.swift */,
+			);
+			path = LocalModels;
+			sourceTree = "<group>";
+		};
+		614966822B58444A003F292B /* ApiModels */ = {
+			isa = PBXGroup;
+			children = (
+				61557D182B558A980049A1BD /* Hero.swift */,
+				61557D1A2B558AB70049A1BD /* HeroLocations.swift */,
+			);
+			path = ApiModels;
+			sourceTree = "<group>";
+		};
 		61557D1C2B559F110049A1BD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +152,7 @@
 				61C458072B53DEA20024E122 /* DragonBall_iOS_AvanzadoTests */,
 				61C458112B53DEA20024E122 /* DragonBall_iOS_AvanzadoUITests */,
 				61C457EC2B53DEA00024E122 /* Products */,
+				614966762B584166003F292B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,8 +169,8 @@
 		61C457ED2B53DEA00024E122 /* DragonBall_iOS_Avanzado */ = {
 			isa = PBXGroup;
 			children = (
-				61557D1C2B559F110049A1BD /* Presentation */,
 				61C458242B53DF330024E122 /* Data */,
+				61557D1C2B559F110049A1BD /* Presentation */,
 				61C458212B53DF150024E122 /* LaunchScreen */,
 				61C457FF2B53DEA20024E122 /* Info.plist */,
 			);
@@ -211,8 +245,8 @@
 		61C458272B53DF530024E122 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				61557D182B558A980049A1BD /* Hero.swift */,
-				61557D1A2B558AB70049A1BD /* HeroLocations.swift */,
+				614966822B58444A003F292B /* ApiModels */,
+				614966812B584441003F292B /* LocalModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,7 +263,8 @@
 		61C4582D2B53DFCA0024E122 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				61C457F72B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodeld */,
+				6149666F2B583A12003F292B /* CoreDataManager.swift */,
+				6149667C2B5842C9003F292B /* DataModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -276,6 +311,7 @@
 			name = DragonBall_iOS_Avanzado;
 			packageProductDependencies = (
 				61C458372B5400CB0024E122 /* KeychainSwift */,
+				614966742B583CAC003F292B /* Kingfisher */,
 			);
 			productName = DragonBall_iOS_Avanzado;
 			productReference = 61C457EB2B53DEA00024E122 /* DragonBall_iOS_Avanzado.app */;
@@ -351,6 +387,7 @@
 			mainGroup = 61C457E22B53DEA00024E122;
 			packageReferences = (
 				61C458362B5400CB0024E122 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				614966732B583CAC003F292B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 61C457EC2B53DEA00024E122 /* Products */;
 			projectDirPath = "";
@@ -400,13 +437,16 @@
 				61557D152B5581930049A1BD /* ApiProvider.swift in Sources */,
 				61C457EF2B53DEA00024E122 /* AppDelegate.swift in Sources */,
 				61C458352B53EBB40024E122 /* LoginViewModel.swift in Sources */,
+				614966702B583A12003F292B /* CoreDataManager.swift in Sources */,
 				61C457F12B53DEA00024E122 /* SceneDelegate.swift in Sources */,
+				6149667E2B5842C9003F292B /* DataModel.xcdatamodeld in Sources */,
 				61557D192B558A980049A1BD /* Hero.swift in Sources */,
+				614966722B583C5E003F292B /* HeroDao.swift in Sources */,
+				614966802B58443C003F292B /* LocationDao.swift in Sources */,
 				61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */,
 				61557D1B2B558AB70049A1BD /* HeroLocations.swift in Sources */,
 				61C4583A2B5401700024E122 /* KeyChainProvider.swift in Sources */,
 				61C458322B53E0720024E122 /* LoginViewController.swift in Sources */,
-				61C457F92B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodeld in Sources */,
 				61557D172B5581AC0049A1BD /* LaunchViewModel.swift in Sources */,
 				61557D1F2B559F3B0049A1BD /* HomeViewController.swift in Sources */,
 			);
@@ -736,6 +776,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		614966732B583CAC003F292B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
 		61C458362B5400CB0024E122 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -747,6 +795,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		614966742B583CAC003F292B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 614966732B583CAC003F292B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		61C458372B5400CB0024E122 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61C458362B5400CB0024E122 /* XCRemoteSwiftPackageReference "keychain-swift" */;
@@ -755,13 +808,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		61C457F72B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodeld */ = {
+		6149667C2B5842C9003F292B /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				61C457F82B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodel */,
+				6149667D2B5842C9003F292B /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 61C457F82B53DEA00024E122 /* DragonBall_iOS_Avanzado.xcdatamodel */;
-			path = DragonBall_iOS_Avanzado.xcdatamodeld;
+			currentVersion = 6149667D2B5842C9003F292B /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

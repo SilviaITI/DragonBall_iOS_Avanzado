@@ -9,11 +9,12 @@ import Foundation
 class LoginViewModel: LoginViewControllerDelegate {
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
-    
+    private let coreDataProvider: CoreDataManager
   
     // MARK: - Properties -
     var viewState: ((LoginViewState) -> Void)?
     var token: String = ""
+    
     init(apiProvider: ApiProviderProtocol,
          keyChainProvider: KeyChainProviderProtocol) {
         self.apiProvider = apiProvider
@@ -22,10 +23,14 @@ class LoginViewModel: LoginViewControllerDelegate {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(onLoginResponse),
-            name: Notification.Name("NOTIFICATION_API_LOGIN"),
+            name: NotificationCenter.apiLoginNotification,
             object: nil
         )
         
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     //MARK: - Functions
     func onLoginPressed(email: String?, password: String?) {
@@ -49,7 +54,16 @@ class LoginViewModel: LoginViewControllerDelegate {
         }
     }
     @objc func onLoginResponse(_ notification: Notification) {
-        
+        viewState?(.loading(true))
+      
+        guard let token = notification.userInfo?[NotificationCenter.tokenKey] as? String,
+              !token.isEmpty else {
+            return
+        }
+        print(token)
+        keyChainProvider.save(token: token)
+        viewState?(.loading(false))
+        viewState?(.navigateToNext)
     }
     
     private func isValidEmail(email: String?) -> Bool {

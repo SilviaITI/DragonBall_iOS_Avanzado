@@ -6,6 +6,11 @@
 //
 import Foundation
 
+extension NotificationCenter {
+    static let apiLoginNotification = Notification.Name("API_LOGIN_NOTIFICATION")
+    static let tokenKey = "KEY_TOKEN"
+}
+// MARK: - Enum errors -
 enum ApiProviderError: Error {
   case malformedURL
    case wrongData
@@ -21,14 +26,8 @@ enum ApiProviderError: Error {
             return "No se han encontrado datos"
         }
     }
-   
 }
-
-extension NotificationCenter {
-    static let apiLoginNotification = Notification.Name("NOTIFICATION_API_LOGIN")
-    static let tokenKey = "KEY_TOKEN"
-}
-
+// MARK: - Protocol -
 protocol ApiProviderProtocol {
     func login(for user: String, with password: String)
     func getHeroes(by name: String?, token: String, completion: ((Heroes) -> Void)?)
@@ -50,16 +49,13 @@ class ApiProvider: ApiProviderProtocol {
         static let delete = "DELETE"
     }
      
-
-
-    // MARK: - ApiProviderProtocol -
+    // MARK: - Functions -
     func login(for user: String, with password: String) {
-       
+        
         guard let url = URL(string: "\(ApiProvider.apiBaseURL)\(Endpoint.login)") else {
             print(ApiProviderError.malformedURL.errorMessage)
             return
         }
-
         guard let loginData = String(format: "%@:%@",
                                      user, password).data(using: .utf8)?.base64EncodedString() else {
             print(ApiProviderError.wrongData.errorMessage)
@@ -84,7 +80,7 @@ class ApiProvider: ApiProviderProtocol {
             }
 
             guard let responseData = String(data: data, encoding: .utf8) else {
-                print("Response ")
+                print("Response \(data)")
                 return
             }
 
