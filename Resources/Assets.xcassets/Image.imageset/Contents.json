@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "fases_de_goku_by_wallpapersdbs_dcp9hws-fullview.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
