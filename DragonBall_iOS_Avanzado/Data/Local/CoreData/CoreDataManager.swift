@@ -8,6 +8,9 @@
 import UIKit
 import CoreData
 
+import UIKit
+import CoreData
+
 class CoreDataManager {
     static let shared = CoreDataManager()
     private var moc: NSManagedObjectContext? {
@@ -62,3 +65,4 @@ class CoreDataManager {
     }
 
 }
+

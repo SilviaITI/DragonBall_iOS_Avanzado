@@ -6,24 +6,67 @@
 //
 
 import UIKit
-
+// MARK: - Protocol -
+protocol LaunchViewControllerDelegate {
+    var viewState:((LaunchViewState) -> Void)? {get set}
+    var loginViewModel: LoginViewControllerDelegate { get }
+     var homeViewModel: HomeViewControllerDelegate { get }
+    func onViewAppear()
+}
+// MARK: - Enum States -
+enum LaunchViewState {
+    case loading(_ isLoading: Bool)
+    case navigateToLogin
+    case navigateToHome
+    
+}
+//MARK: - Class -
 class LaunchViewController: UIViewController {
-
+    
+    // MARK: - Properties -
+    var viewModel: LaunchViewControllerDelegate?
+    
+    // MARK: - Outlets -
+    @IBOutlet weak var loadingView: UIView!
+    
+    // MARK: - LyfeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel?.onViewAppear()
+        setObservers()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Functions -
+    private func setObservers() {
+        viewModel?.viewState = { [weak self] state in
+            DispatchQueue.main.async {
+                switch state {
+                case .loading(let isLoading):
+                    self?.loadingView.isHidden = !isLoading
+                case .navigateToHome :
+                    self?.navigateToHome()
+                case .navigateToLogin:
+                    self?.navigateToLogin()
+                }
+            }
+        }
     }
-    */
+ 
+    // MARK: - Navigation -
 
+    private func navigateToLogin() {
+        DispatchQueue.main.async {
+            let loginViewController = LoginViewController()
+            self.navigationController?.setViewControllers([loginViewController], animated: true)
+            loginViewController.viewModel = self.viewModel?.loginViewModel
+            
+        }
+    }
+    private func navigateToHome() {
+        DispatchQueue.main.async {
+            let homeViewController = HomeViewController()
+            self.navigationController?.setViewControllers([homeViewController], animated: true)
+            homeViewController.viewModel = self.viewModel?.homeViewModel
+        }
+    }
 }

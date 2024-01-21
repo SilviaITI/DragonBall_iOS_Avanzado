@@ -6,6 +6,7 @@
 //
 import Foundation
 
+// MARK: - Extension -
 extension NotificationCenter {
     static let apiLoginNotification = Notification.Name("API_LOGIN_NOTIFICATION")
     static let tokenKey = "KEY_TOKEN"
@@ -29,12 +30,14 @@ enum ApiProviderError: Error {
 }
 // MARK: - Protocol -
 protocol ApiProviderProtocol {
+  
     func login(for user: String, with password: String)
     func getHeroes(by name: String?, token: String, completion: ((Heroes) -> Void)?)
     func getLocations(by heroId: String?, token: String, completion: ((HeroLocations) -> Void)?)
 }
-
+// MARK: - Class -
 class ApiProvider: ApiProviderProtocol {
+ 
     // MARK: - Constants -
     static private let apiBaseURL = "https://dragonball.keepcoding.education/api"
     private enum Endpoint {

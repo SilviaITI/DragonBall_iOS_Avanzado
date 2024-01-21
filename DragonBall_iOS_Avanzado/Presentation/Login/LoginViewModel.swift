@@ -6,10 +6,12 @@
 //
 
 import Foundation
+
+//MARK: - Class -
 class LoginViewModel: LoginViewControllerDelegate {
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
-    private let coreDataProvider: CoreDataManager
+    
   
     // MARK: - Properties -
     var viewState: ((LoginViewState) -> Void)?
@@ -20,13 +22,13 @@ class LoginViewModel: LoginViewControllerDelegate {
         self.apiProvider = apiProvider
         self.keyChainProvider = keyChainProvider
         
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(onLoginResponse),
             name: NotificationCenter.apiLoginNotification,
             object: nil
         )
-        
     }
     
     deinit {

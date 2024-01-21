@@ -18,6 +18,7 @@
 		61557D1B2B558AB70049A1BD /* HeroLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D1A2B558AB70049A1BD /* HeroLocations.swift */; };
 		61557D1F2B559F3B0049A1BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D1D2B559F3B0049A1BD /* HomeViewController.swift */; };
 		61557D202B559F3B0049A1BD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61557D1E2B559F3B0049A1BD /* HomeViewController.xib */; };
+		619A8AE62B5D25A300BC6EF2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A8AE52B5D25A300BC6EF2 /* HomeViewModel.swift */; };
 		61C457EF2B53DEA00024E122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C457EE2B53DEA00024E122 /* AppDelegate.swift */; };
 		61C457F12B53DEA00024E122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C457F02B53DEA00024E122 /* SceneDelegate.swift */; };
 		61C457FB2B53DEA20024E122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C457FA2B53DEA20024E122 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		61557D1A2B558AB70049A1BD /* HeroLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroLocations.swift; sourceTree = "<group>"; };
 		61557D1D2B559F3B0049A1BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61557D1E2B559F3B0049A1BD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		619A8AE52B5D25A300BC6EF2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		61C457EB2B53DEA00024E122 /* DragonBall_iOS_Avanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragonBall_iOS_Avanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C457EE2B53DEA00024E122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61C457F02B53DEA00024E122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				61557D1D2B559F3B0049A1BD /* HomeViewController.swift */,
 				61557D1E2B559F3B0049A1BD /* HomeViewController.xib */,
+				619A8AE52B5D25A300BC6EF2 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619A8AE62B5D25A300BC6EF2 /* HomeViewModel.swift in Sources */,
 				61C4582B2B53DFA00024E122 /* LaunchViewController.swift in Sources */,
 				61557D152B5581930049A1BD /* ApiProvider.swift in Sources */,
 				61C457EF2B53DEA00024E122 /* AppDelegate.swift in Sources */,
