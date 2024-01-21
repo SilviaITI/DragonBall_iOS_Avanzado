@@ -11,8 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="DragonBall_iOS_Avanzado" customModuleProvider="target">
             <connections>
+                <outlet property="exit" destination="u3T-6y-R6l" id="0Cz-kg-0YR"/>
+                <outlet property="loadingView" destination="1FT-6A-1hT" id="eBn-DT-g03"/>
+                <outlet property="map" destination="poJ-7m-iSt" id="4u2-va-QL8"/>
                 <outlet property="searchHero" destination="A3P-T6-FrR" id="o6m-ro-1vy"/>
-                <outlet property="tabBar" destination="kru-wK-AAu" id="TTu-qF-I2w"/>
+                <outlet property="tabBar" destination="kru-wK-AAu" id="nx8-rm-C3c"/>
                 <outlet property="tableHeros" destination="9jE-Nj-6sq" id="S2t-gZ-jmG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -37,15 +40,30 @@
                     <rect key="frame" x="0.0" y="756" width="393" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
-                        <tabBarItem systemItem="favorites" id="u3T-6y-R6l"/>
-                        <tabBarItem systemItem="more" id="poJ-7m-iSt"/>
+                        <tabBarItem title="Salir" image="square.and.arrow.up" catalog="system" id="u3T-6y-R6l"/>
+                        <tabBarItem title="Mapa" image="map" catalog="system" id="poJ-7m-iSt"/>
                     </items>
                 </tabBar>
+                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1FT-6A-1hT">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="iej-Im-Fe9">
+                            <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="iej-Im-Fe9" firstAttribute="centerY" secondItem="1FT-6A-1hT" secondAttribute="centerY" id="RYn-6g-fJS"/>
+                        <constraint firstItem="iej-Im-Fe9" firstAttribute="centerX" secondItem="1FT-6A-1hT" secondAttribute="centerX" id="T0e-Qk-pKw"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="A3P-T6-FrR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2cB-vt-Bgl"/>
+                <constraint firstItem="1FT-6A-1hT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2m0-FE-QK5"/>
+                <constraint firstItem="1FT-6A-1hT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="C9i-Fz-QRM"/>
                 <constraint firstItem="kru-wK-AAu" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FK5-Uf-iRh"/>
                 <constraint firstItem="9jE-Nj-6sq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="NYF-D7-sW3"/>
                 <constraint firstItem="9jE-Nj-6sq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="PYj-3V-5b9"/>
@@ -53,14 +71,18 @@
                 <constraint firstItem="kru-wK-AAu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WGc-tU-bao"/>
                 <constraint firstItem="A3P-T6-FrR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XQ2-xv-UBQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kru-wK-AAu" secondAttribute="bottom" constant="13" id="c95-3h-Ele"/>
+                <constraint firstItem="1FT-6A-1hT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="idV-OK-oO9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9jE-Nj-6sq" secondAttribute="bottom" constant="21" id="vVl-g6-T09"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9jE-Nj-6sq" secondAttribute="trailing" constant="16" id="w5F-gV-uIC"/>
                 <constraint firstItem="A3P-T6-FrR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="36" id="xow-qG-p7x"/>
+                <constraint firstAttribute="bottom" secondItem="1FT-6A-1hT" secondAttribute="bottom" id="zB7-vU-sKC"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
