@@ -8,13 +8,13 @@
 import UIKit
 import CoreData
 
-import UIKit
-import CoreData
-
 class CoreDataManager {
     static let shared = CoreDataManager()
+    
     private var moc: NSManagedObjectContext? {
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+       
+            (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+       
     }
 
     // saves heroes

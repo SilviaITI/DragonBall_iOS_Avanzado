@@ -13,6 +13,7 @@ protocol HomeViewControllerDelegate {
     var viewState: ((HomeViewState) -> Void)? { get set}
     func logOut()
     func onViewAppear()
+    func fecthHeroes() -> Heroes
     func heroBy(index: Int) -> Hero?
 }
 
@@ -104,17 +105,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-//    func tableView(
-//        _ tableView: UITableView,
-//        didSelectRowAt indexPath: IndexPath) { // para presentar la
-//            let hero = viewModel?.heroBy(index: indexPath.row)
-//            let detailViewController = DetailViewController()
-//            detailViewController.hero = hero
-//            navigationController?.show(detailViewController, sender: nil)
-//            tableView.deselectRow(at: indexPath, animated: true)
-//            
-//            
-//        }
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) { // para presentar la
+            let hero = viewModel?.heroBy(index: indexPath.row)
+            let detailViewController = DetailViewController()
+            detailViewController.hero = hero
+            navigationController?.show(detailViewController, sender: hero)
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            
+        }
 }
 
 extension HomeViewController: UITabBarDelegate {
@@ -127,9 +128,10 @@ extension HomeViewController: UITabBarDelegate {
             //CoreDataManager.shared.deleteAll()
         } else if item == map{
             print("pulsado")
-            //    let mapViewController = MapViewController()
-            //    mapViewController.heroes = viewModel.heroes
-            //    navigationController?.pushViewController(mapViewController, animated: true)
+                let mapView = MapViewController()
+            mapView.viewModel = MapViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider(), heroes: viewModel?.fecthHeroes()) as? any MapViewControllerDelegate
+           
+                navigationController?.pushViewController(mapView, animated: true)
         }
     }
 }

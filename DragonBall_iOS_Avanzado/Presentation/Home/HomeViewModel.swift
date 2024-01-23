@@ -65,5 +65,8 @@ class HomeViewModel: HomeViewControllerDelegate {
                 return nil
             }
         }
+    func fecthHeroes() -> Heroes {
+        heroes
+    }
     }
 
