@@ -42,12 +42,11 @@ class HomeViewModel: HomeViewControllerDelegate {
                 self.heroes = heroes
                 self.viewState?(.loading(false))
                 self.viewState?(.reloadData)
-                heroes.forEach { hero in
-                    CoreDataManager.shared.saveHero(hero: hero)
+               
                 }
             }
         }
-    }
+    
   
 // TO DO  Mirar con foreACH
 //    func filteredHeroes(name: String)  {

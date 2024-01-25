@@ -10,8 +10,8 @@ import MapKit
 
 protocol MapViewControllerDelegate {
     var viewState:((MapViewState) -> Void)? {get set}
-    var heroLocations: HeroLocations? {get}
-    func fetchLocations(completion: @escaping () -> ())
+ 
+    func fetchLocations() -> HeroLocations
 }
     enum MapViewState {
         case loading(_ isLoading: Bool)
@@ -19,13 +19,13 @@ protocol MapViewControllerDelegate {
     }
 class MapViewController: UIViewController {
     var viewModel: MapViewControllerDelegate?
-    
+   
     @IBOutlet weak var heroesMap: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.fetchLocations {
-            self.updateViews()
-        }
+
+        updateViews()
+        
 
     }
     
@@ -33,20 +33,22 @@ class MapViewController: UIViewController {
         
     }
     
-    private func updateViews() {
-        DispatchQueue.main.async {
-            self.viewModel?.heroLocations?.forEach {
+    private func updateViews( ) {
+   
+            var locationsAnotations = self.viewModel?.fetchLocations()
+            for locationAnotation in locationsAnotations! {
+                print("cacaConrto\(locationAnotation.latitud)")
             self.heroesMap.addAnnotation(
                 LocationsAnotations(
-                    coordinate: .init(latitude: Double($0.latitude ?? "" ) ?? 0.0,
-                                      longitude: Double($0.longitude ?? "" ) ?? 0.0),
-                    title:$0.hero?.name,
-                    info: $0.hero?.id ?? ""
+                    coordinate: .init(latitude: Double(locationAnotation.latitud ?? "0.0" ) ?? 0.0,
+                                      longitude: Double(locationAnotation.longitud ?? "0.0" ) ?? 0.0),
+                    title: "hola",
+                    info:  "id"
                     )
                 )
                 self.heroesMap.setNeedsDisplay()
         }
-                    }
+                    
         /*
          // MARK: - Navigation
          

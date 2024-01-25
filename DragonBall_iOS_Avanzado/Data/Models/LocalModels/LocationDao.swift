@@ -27,10 +27,10 @@ class LocationDao: NSManagedObject {
         if let dateShow = location.date {
             self.dateShow = dateShow
         }
-        if let latitud = location.latitude {
+        if let latitud = location.latitud {
             self.latitud = latitud
         }
-        if let longitud = location.longitude{
+        if let longitud = location.longitud{
             self.longitud = longitud
         }
     }

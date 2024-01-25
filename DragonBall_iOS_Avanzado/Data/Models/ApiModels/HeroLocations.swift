@@ -11,8 +11,8 @@ typealias HeroLocations = [HeroLocation]
 
 struct HeroLocation: Codable {
     let id: String?
-    let latitude: String?
-    let longitude: String?
+    let latitud: String?
+    let longitud: String?
     let date: String?
     let hero: Hero?
 }
