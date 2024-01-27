@@ -33,7 +33,7 @@ protocol ApiProviderProtocol {
   
     func login(for user: String, with password: String)
     func getHeroes(by name: String?, token: String, completion: ((Heroes) -> Void)?)
-    func getLocations(by heroId: String?, token: String, completion: (([HeroLocations]) -> Void)?)
+    func getLocations(by heroId: String?, token: String, completion: (([Location]) -> Void)?)
 }
 // MARK: - Class -
 class ApiProvider: ApiProviderProtocol {
@@ -139,7 +139,7 @@ class ApiProvider: ApiProviderProtocol {
         }.resume()
     }
 
-    func getLocations(by heroId: String?, token: String, completion: (([HeroLocations]) -> Void)?) {
+    func getLocations(by heroId: String?, token: String, completion: (([Location]) -> Void)?) {
         guard let url = URL(string: "\(ApiProvider.apiBaseURL)\(Endpoint.heroLocations)") else {
             // TODO: Enviar notificación indicando el error
             return
@@ -170,14 +170,14 @@ class ApiProvider: ApiProviderProtocol {
                 return
             }
 
-            guard let heroLocations = try? JSONDecoder().decode(HeroLocations.self, from: data) else {
+            guard let heroLocations = try? JSONDecoder().decode([Location].self, from: data) else {
                 // TODO: Enviar notificación indicando response error
                 completion?([])
                 return
             }
 
             print("API RESPONSE - GET HERO LOCATIONS: \(heroLocations)")
-            completion?([heroLocations])
+            completion?(heroLocations)
         }.resume()
     }
 }

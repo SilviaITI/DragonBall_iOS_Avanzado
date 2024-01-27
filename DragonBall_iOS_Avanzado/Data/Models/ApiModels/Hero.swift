@@ -10,10 +10,10 @@ typealias Heroes = [Hero]
 
 struct Hero: Codable {
     let id: String
-    let name: String
-    let description: String
+    let name: String?
+    let description: String?
     let photo: URL?
-    let favorite: Bool
+    let favorite: Bool?
 
     init(id: String, name: String, description: String, photo: URL?, favorite: Bool) {
         self.id = id

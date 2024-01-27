@@ -35,10 +35,10 @@ class CoreDataManager: NSObject, CoreDataManagerProtocol {
             
             // Configura las propiedades del HeroDao con los valores del Hero
             heroDao.id = hero.id
-            heroDao.name = hero.name
-            heroDao.descriptionHero = hero.description
-            heroDao.photo = hero.photo?.absoluteString
-            heroDao.favorite = hero.favorite
+            heroDao.name = hero.name ?? ""
+            heroDao.descriptionHero = hero.description ?? ""
+            heroDao.photo = hero.photo?.absoluteString ?? ""
+            heroDao.favorite = hero.favorite ?? false
             
             // Intenta guardar el contexto
             try moc.save()

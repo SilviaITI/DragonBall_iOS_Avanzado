@@ -14,7 +14,7 @@ class DetailViewModel: DetailViewControllerDelegate {
     private let keyChainProvider: KeyChainProviderProtocol
     var vieweState: ((DetailState) -> Void)?
     private var hero: Hero
-    private var heroLocations: [HeroLocations] = []
+    private var heroLocations: [Location] = []
     
     
     

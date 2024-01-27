@@ -8,6 +8,7 @@
 import UIKit
 protocol LoginViewControllerDelegate {
     var viewState:((LoginViewState) -> Void)? {get set}
+    var homeViewModel: HomeViewControllerDelegate { get }
     func onLoginPressed(email: String?, password: String?)
 }
 enum LoginViewState {
@@ -84,6 +85,7 @@ class LoginViewController: UIViewController {
      
     func navigateToNext() {
         let home = HomeViewController()
+        home.viewModel = self.viewModel?.homeViewModel
         navigationController?.setViewControllers([home], animated: true)
     }
     

@@ -24,9 +24,9 @@ class HeroDao: NSManagedObject {
     convenience init(context: NSManagedObjectContext, hero: Hero) {
         self.init(context: context)
         id = hero.id
-        name = hero.name
-        descriptionHero = hero.description
-        photo = hero.photo?.absoluteString
-        favorite = hero.favorite
+        name = hero.name ?? ""
+        descriptionHero = hero.description ?? ""
+        photo = hero.photo?.absoluteString ?? ""
+        favorite = hero.favorite ?? false
     }
 }

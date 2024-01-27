@@ -9,6 +9,7 @@ import Foundation
 
 //MARK: - Class -
 class LoginViewModel: LoginViewControllerDelegate {
+
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
     private let coreDataManager: CoreDataManagerProtocol
@@ -17,6 +18,14 @@ class LoginViewModel: LoginViewControllerDelegate {
     // MARK: - Properties -
     var viewState: ((LoginViewState) -> Void)?
     var token: String = ""
+    
+    lazy var homeViewModel: HomeViewControllerDelegate = {
+        HomeViewModel(
+          apiProvider: apiProvider,
+          keyChainProvider: keyChainProvider,
+          coreDataManager: coreDataManager as! CoreDataManager
+        )
+    }()
     
     init(apiProvider: ApiProviderProtocol,
          keyChainProvider: KeyChainProviderProtocol,
@@ -37,6 +46,7 @@ class LoginViewModel: LoginViewControllerDelegate {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
     //MARK: - Functions
     func onLoginPressed(email: String?, password: String?) {
         viewState?(.loading(true))

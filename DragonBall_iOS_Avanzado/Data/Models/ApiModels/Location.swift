@@ -9,7 +9,7 @@ import Foundation
 
 
 
-struct HeroLocations: Codable {
+struct Location: Codable {
     let id: String?
     let latitud: String?
     let longitud: String?

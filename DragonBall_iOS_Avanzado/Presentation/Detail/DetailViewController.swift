@@ -19,7 +19,7 @@ protocol DetailViewControllerDelegate {
 
 enum DetailState {
     case loading(_ isLoading: Bool)
-    case update(hero: Hero?, locations: [HeroLocations])
+    case update(hero: Hero?, locations: [Location])
 }
 class DetailViewController: UIViewController {
     var viewModel: DetailViewControllerDelegate?
@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         heroImage.layer.cornerRadius = 20.0
-        self.viewModel?.onViewsAppear()
+        viewModel?.onViewsAppear()
         setObvservers()
        
     }
@@ -49,28 +49,33 @@ class DetailViewController: UIViewController {
                     self?.loadingView.isHidden = false
                 case .update(let hero, let locations):
                     self?.initViews(hero: hero, heroLocations: locations)
+                    print("Heroe, \(hero), locations \(locations)")
                 }
             }
         }
     }
-    private func initViews(hero: Hero?, heroLocations: [HeroLocations]) {
-        heroName.text = hero?.name
-        heroImage.kf.setImage(with: hero?.photo)
-        heroDescription.text = hero?.description
-        
-        
-        heroLocations.forEach {
-            mapDetail.addAnnotation(
-          HeroAnnotation(
-                    title: hero?.name,
-                    info: hero?.id,
-                    coordinate: .init(latitude: Double($0.latitud ?? "") ?? 0.0,
-                                      longitude: Double($0.longitud ?? "") ?? 0.0)
+    private func initViews(hero: Hero?, heroLocations: [Location]) {
+        DispatchQueue.main.async {
+            self.heroName.text = hero?.name
+            self.heroImage.kf.setImage(with: hero?.photo)
+            self.heroDescription.text = hero?.description
+            heroLocations.forEach {
+                self.mapDetail.addAnnotation(
+                    HeroAnnotation(
+                        title: hero?.name,
+                        info: hero?.id,
+                        coordinate: .init(latitude: Double($0.latitud ?? "") ?? 0.0,
+                                          longitude: Double($0.longitud ?? "") ?? 0.0)
+                    )
                 )
-            )
-            self.mapDetail.setNeedsDisplay()
+                self.mapDetail.setNeedsDisplay()
+                print(HeroAnnotation.self)
+               
+            }
+           // self.centerMapAroundLocations(locations: heroLocations)
         }
     }
-        
+    
+
     }
 

@@ -57,16 +57,18 @@ class LaunchViewController: UIViewController {
     private func navigateToLogin() {
         DispatchQueue.main.async {
             let loginViewController = LoginViewController()
-            self.navigationController?.setViewControllers([loginViewController], animated: true)
             loginViewController.viewModel = self.viewModel?.loginViewModel
+            self.navigationController?.setViewControllers([loginViewController], animated: true)
+         
             
         }
     }
     private func navigateToHome() {
         DispatchQueue.main.async {
             let homeViewController = HomeViewController()
-            self.navigationController?.setViewControllers([homeViewController], animated: true)
             homeViewController.viewModel = self.viewModel?.homeViewModel
+            self.navigationController?.setViewControllers([homeViewController], animated: true)
+            
         }
     }
 }

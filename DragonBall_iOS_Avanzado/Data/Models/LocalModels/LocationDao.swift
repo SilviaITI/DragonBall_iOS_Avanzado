@@ -19,7 +19,7 @@ class LocationDao: NSManagedObject {
     @NSManaged var longitud: String?
     
     
-    convenience init(location: HeroLocations, context: NSManagedObjectContext) {
+    convenience init(location: Location, context: NSManagedObjectContext) {
         self.init( context: context)
         id = location.id
         dateShow = location.date

@@ -21,7 +21,7 @@
 		61557D152B5581930049A1BD /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D142B5581930049A1BD /* ApiProvider.swift */; };
 		61557D172B5581AC0049A1BD /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D162B5581AC0049A1BD /* LaunchViewModel.swift */; };
 		61557D192B558A980049A1BD /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D182B558A980049A1BD /* Hero.swift */; };
-		61557D1B2B558AB70049A1BD /* HeroLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D1A2B558AB70049A1BD /* HeroLocations.swift */; };
+		61557D1B2B558AB70049A1BD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D1A2B558AB70049A1BD /* Location.swift */; };
 		61557D1F2B559F3B0049A1BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D1D2B559F3B0049A1BD /* HomeViewController.swift */; };
 		61557D202B559F3B0049A1BD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61557D1E2B559F3B0049A1BD /* HomeViewController.xib */; };
 		619A8AE62B5D25A300BC6EF2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A8AE52B5D25A300BC6EF2 /* HomeViewModel.swift */; };
@@ -76,7 +76,7 @@
 		61557D142B5581930049A1BD /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		61557D162B5581AC0049A1BD /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		61557D182B558A980049A1BD /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
-		61557D1A2B558AB70049A1BD /* HeroLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroLocations.swift; sourceTree = "<group>"; };
+		61557D1A2B558AB70049A1BD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		61557D1D2B559F3B0049A1BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61557D1E2B559F3B0049A1BD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		619A8AE52B5D25A300BC6EF2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				61557D182B558A980049A1BD /* Hero.swift */,
-				61557D1A2B558AB70049A1BD /* HeroLocations.swift */,
+				61557D1A2B558AB70049A1BD /* Location.swift */,
 			);
 			path = ApiModels;
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 				610A05DB2B5D834100482077 /* DetailViewController.swift in Sources */,
 				614966802B58443C003F292B /* LocationDao.swift in Sources */,
 				61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */,
-				61557D1B2B558AB70049A1BD /* HeroLocations.swift in Sources */,
+				61557D1B2B558AB70049A1BD /* Location.swift in Sources */,
 				61C4583A2B5401700024E122 /* KeyChainProvider.swift in Sources */,
 				61F91A3F2B628D75009C72F7 /* DragonBallModel.xcdatamodeld in Sources */,
 				61C458322B53E0720024E122 /* LoginViewController.swift in Sources */,

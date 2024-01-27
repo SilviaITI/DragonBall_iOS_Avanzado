@@ -7,8 +7,14 @@
 
 import Foundation
 class HomeViewModel: HomeViewControllerDelegate {
-    
-    
+    lazy var loginViewModel: LoginViewControllerDelegate = {
+          LoginViewModel(
+            apiProvider: apiProvider,
+             keyChainProvider: keyChainProvider,
+            coreDataManager: coreDataManager
+          )
+      }()
+   
     // MARK: - Properties -
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
@@ -33,6 +39,7 @@ class HomeViewModel: HomeViewControllerDelegate {
     // MARK: - Functions -
     func logOut() {
         keyChainProvider.delete(token: token)
+        coreDataManager.deleteAllHeroes()
        
     }
     
@@ -41,37 +48,37 @@ class HomeViewModel: HomeViewControllerDelegate {
     }
     
     func onViewAppear() {
-        defer { viewState?(.loading(false)) }
+       
         viewState?(.loading(true))
-        DispatchQueue.global().async { [weak self] in
-            guard let token = self?.keyChainProvider.getToken()
+        
+        DispatchQueue.global().async {
+           
+            guard let token = self.keyChainProvider.getToken()
             else { return }
-           if let savedHeroes = self?.coreDataManager.loadHero()
-          {
-                self?.heroes = savedHeroes.map{ heroDao in
+         let savedHeroes = self.coreDataManager.loadHero()
+            if !savedHeroes.isEmpty {
+                self.heroes = savedHeroes.map { heroDao in
                     return Hero(id: heroDao.id ,
                                 name: heroDao.name ,
                                 description: heroDao.descriptionHero ,
                                 photo: URL(string: heroDao.photo ?? "" ),
                                 favorite: heroDao.favorite)
                 }
-                self?.viewState?(.reloadData)
-                self?.viewState?(.loading(false))
+                self.viewState?(.reloadData)
+                self.viewState?(.loading(false))
                 print("Saved Heroes: \(savedHeroes)")
                 
             } else {
-                self?.apiProvider.getHeroes(by: nil, token: token){ heroes in
-                    self?.heroes = heroes
-                    self?.viewState?(.loading(false))
-                    DispatchQueue.main.async {
-                     
-                        self?.viewState?(.reloadData)
-                        self?.viewState?(.loading(false))
+                self.apiProvider.getHeroes(by: nil, token: token){ heroes in
+                    self.heroes = heroes
+                    self.viewState?(.reloadData)
+                    self.viewState?(.loading(false))
                         for hero in heroes {
-                            self?.coreDataManager.saveHero(hero: hero)
+                            self.coreDataManager.saveHero(hero: hero)
+                           
 
                         }
-                    }
+                    
           
                     }
                 }

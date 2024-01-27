@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="DragonBall_iOS_Avanzado" customModuleProvider="target">
             <connections>
                 <outlet property="heroesMap" destination="Unh-DB-Hoi" id="At5-YX-5OW"/>
+                <outlet property="loadingView" destination="5LR-Q7-46Q" id="AvO-lF-IXU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,12 +32,26 @@
                     <color key="textColor" systemColor="systemOrangeColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5LR-Q7-46Q">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="NtJ-Jo-NH4">
+                            <rect key="frame" x="186" y="416" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Unh-DB-Hoi" secondAttribute="trailing" constant="16" id="6xk-kJ-cxH"/>
+                <constraint firstItem="5LR-Q7-46Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BfU-4V-zlc"/>
+                <constraint firstAttribute="trailing" secondItem="5LR-Q7-46Q" secondAttribute="trailing" id="Fnt-BG-qb2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Unh-DB-Hoi" secondAttribute="bottom" constant="40" id="IXr-dF-PZd"/>
+                <constraint firstAttribute="bottom" secondItem="5LR-Q7-46Q" secondAttribute="bottom" id="JCm-HY-Yrg"/>
+                <constraint firstItem="5LR-Q7-46Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SZd-ET-oMk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B3o-EH-XX5" secondAttribute="trailing" constant="16" id="V7u-4y-G99"/>
                 <constraint firstItem="Unh-DB-Hoi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="VcI-ST-0Hj"/>
                 <constraint firstItem="B3o-EH-XX5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="a14-HK-ZLc"/>

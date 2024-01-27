@@ -11,6 +11,7 @@ import UIKit
 protocol HomeViewControllerDelegate {
     var heroesCount: Int { get }
     var viewState: ((HomeViewState) -> Void)? { get set}
+    var loginViewModel: LoginViewControllerDelegate { get }
     func logOut()
     func onViewAppear()
     func fecthHeroes() -> Heroes
@@ -45,12 +46,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         tableHeros.delegate = self
         tableHeros.dataSource = self
         searchHero.delegate = self
-        viewModel?.onViewAppear()
         tableHeros.register(
             UINib(nibName: "Cell", bundle: nil),
             forCellReuseIdentifier: Cell.identifier
         )
         setObservers()
+        viewModel?.onViewAppear()
        
     }
     
@@ -124,6 +125,7 @@ extension HomeViewController: UITabBarDelegate {
         if item == exit {
             viewModel?.logOut()
             let login = LoginViewController()
+            login.viewModel = self.viewModel?.loginViewModel
             navigationController?.setViewControllers([login], animated: true)
             
             //CoreDataManager.shared.deleteAll()
