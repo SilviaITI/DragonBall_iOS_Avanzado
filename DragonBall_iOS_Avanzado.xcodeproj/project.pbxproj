@@ -14,6 +14,10 @@
 		614966702B583A12003F292B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149666F2B583A12003F292B /* CoreDataManager.swift */; };
 		614966752B583CAC003F292B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 614966742B583CAC003F292B /* Kingfisher */; };
 		614966802B58443C003F292B /* LocationDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149667F2B58443C003F292B /* LocationDao.swift */; };
+		614B53FA2B650B5E0063C5BD /* HeroDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B53F92B650B5E0063C5BD /* HeroDao.swift */; };
+		614B53FC2B6518EB0063C5BD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B53FB2B6518EB0063C5BD /* CoreDataStack.swift */; };
+		614B53FE2B6524120063C5BD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B53FD2B6524120063C5BD /* DetailViewModel.swift */; };
+		614B54012B653D2A0063C5BD /* HeroAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B54002B653D2A0063C5BD /* HeroAnnotation.swift */; };
 		61557D152B5581930049A1BD /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D142B5581930049A1BD /* ApiProvider.swift */; };
 		61557D172B5581AC0049A1BD /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D162B5581AC0049A1BD /* LaunchViewModel.swift */; };
 		61557D192B558A980049A1BD /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D182B558A980049A1BD /* Hero.swift */; };
@@ -37,7 +41,6 @@
 		61E61FA92B601E9500F309BD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E61FA72B601E9500F309BD /* MapViewController.swift */; };
 		61E61FAA2B601E9500F309BD /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61E61FA82B601E9500F309BD /* MapViewController.xib */; };
 		61E61FAC2B601EAF00F309BD /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E61FAB2B601EAF00F309BD /* MapViewModel.swift */; };
-		61E61FAE2B60200600F309BD /* LocationsAnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E61FAD2B60200600F309BD /* LocationsAnotations.swift */; };
 		61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F19EE12B57CE0500E20323 /* DataTestProvider.swift */; };
 		61F91A3F2B628D75009C72F7 /* DragonBallModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61F91A3D2B628D75009C72F7 /* DragonBallModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -66,6 +69,10 @@
 		610A05DE2B5D83A700482077 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		6149666F2B583A12003F292B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6149667F2B58443C003F292B /* LocationDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDao.swift; sourceTree = "<group>"; };
+		614B53F92B650B5E0063C5BD /* HeroDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDao.swift; sourceTree = "<group>"; };
+		614B53FB2B6518EB0063C5BD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		614B53FD2B6524120063C5BD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		614B54002B653D2A0063C5BD /* HeroAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAnnotation.swift; sourceTree = "<group>"; };
 		61557D142B5581930049A1BD /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		61557D162B5581AC0049A1BD /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		61557D182B558A980049A1BD /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
@@ -92,7 +99,6 @@
 		61E61FA72B601E9500F309BD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		61E61FA82B601E9500F309BD /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		61E61FAB2B601EAF00F309BD /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		61E61FAD2B60200600F309BD /* LocationsAnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsAnotations.swift; sourceTree = "<group>"; };
 		61F19EE12B57CE0500E20323 /* DataTestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTestProvider.swift; sourceTree = "<group>"; };
 		61F91A3E2B628D75009C72F7 /* DragonBallModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DragonBallModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +135,7 @@
 			children = (
 				610A05D92B5D834100482077 /* DetailViewController.swift */,
 				610A05DA2B5D834100482077 /* DetailViewController.xib */,
+				614B53FD2B6524120063C5BD /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -143,6 +150,7 @@
 		614966812B584441003F292B /* LocalModels */ = {
 			isa = PBXGroup;
 			children = (
+				614B53F92B650B5E0063C5BD /* HeroDao.swift */,
 				6149667F2B58443C003F292B /* LocationDao.swift */,
 			);
 			path = LocalModels;
@@ -155,6 +163,14 @@
 				61557D1A2B558AB70049A1BD /* HeroLocations.swift */,
 			);
 			path = ApiModels;
+			sourceTree = "<group>";
+		};
+		614B53FF2B653D0A0063C5BD /* HeroAnnotations */ = {
+			isa = PBXGroup;
+			children = (
+				614B54002B653D2A0063C5BD /* HeroAnnotation.swift */,
+			);
+			path = HeroAnnotations;
 			sourceTree = "<group>";
 		};
 		61557D1C2B559F110049A1BD /* Presentation */ = {
@@ -294,6 +310,7 @@
 			children = (
 				6149666F2B583A12003F292B /* CoreDataManager.swift */,
 				61F91A3D2B628D75009C72F7 /* DragonBallModel.xcdatamodeld */,
+				614B53FB2B6518EB0063C5BD /* CoreDataStack.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -317,10 +334,10 @@
 		61E61FA62B601E7B00F309BD /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				614B53FF2B653D0A0063C5BD /* HeroAnnotations */,
 				61E61FA72B601E9500F309BD /* MapViewController.swift */,
 				61E61FA82B601E9500F309BD /* MapViewController.xib */,
 				61E61FAB2B601EAF00F309BD /* MapViewModel.swift */,
-				61E61FAD2B60200600F309BD /* LocationsAnotations.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -477,16 +494,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				619A8AE62B5D25A300BC6EF2 /* HomeViewModel.swift in Sources */,
+				614B53FC2B6518EB0063C5BD /* CoreDataStack.swift in Sources */,
 				61C4582B2B53DFA00024E122 /* LaunchViewController.swift in Sources */,
 				61557D152B5581930049A1BD /* ApiProvider.swift in Sources */,
 				61E61FA92B601E9500F309BD /* MapViewController.swift in Sources */,
 				61C457EF2B53DEA00024E122 /* AppDelegate.swift in Sources */,
 				61C458352B53EBB40024E122 /* LoginViewModel.swift in Sources */,
+				614B53FE2B6524120063C5BD /* DetailViewModel.swift in Sources */,
 				614966702B583A12003F292B /* CoreDataManager.swift in Sources */,
 				61C457F12B53DEA00024E122 /* SceneDelegate.swift in Sources */,
-				61E61FAE2B60200600F309BD /* LocationsAnotations.swift in Sources */,
 				61557D192B558A980049A1BD /* Hero.swift in Sources */,
 				61E61FAC2B601EAF00F309BD /* MapViewModel.swift in Sources */,
+				614B54012B653D2A0063C5BD /* HeroAnnotation.swift in Sources */,
 				610A05DB2B5D834100482077 /* DetailViewController.swift in Sources */,
 				614966802B58443C003F292B /* LocationDao.swift in Sources */,
 				61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */,
@@ -495,6 +514,7 @@
 				61F91A3F2B628D75009C72F7 /* DragonBallModel.xcdatamodeld in Sources */,
 				61C458322B53E0720024E122 /* LoginViewController.swift in Sources */,
 				610A05DF2B5D83A700482077 /* Cell.swift in Sources */,
+				614B53FA2B650B5E0063C5BD /* HeroDao.swift in Sources */,
 				61557D172B5581AC0049A1BD /* LaunchViewModel.swift in Sources */,
 				61557D1F2B559F3B0049A1BD /* HomeViewController.swift in Sources */,
 			);

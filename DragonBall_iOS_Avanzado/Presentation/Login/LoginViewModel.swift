@@ -11,6 +11,7 @@ import Foundation
 class LoginViewModel: LoginViewControllerDelegate {
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
+    private let coreDataManager: CoreDataManagerProtocol
     
   
     // MARK: - Properties -
@@ -18,9 +19,11 @@ class LoginViewModel: LoginViewControllerDelegate {
     var token: String = ""
     
     init(apiProvider: ApiProviderProtocol,
-         keyChainProvider: KeyChainProviderProtocol) {
+         keyChainProvider: KeyChainProviderProtocol,
+         coreDataManager: CoreDataManagerProtocol) {
         self.apiProvider = apiProvider
         self.keyChainProvider = keyChainProvider
+        self.coreDataManager = coreDataManager
         
         
         NotificationCenter.default.addObserver(

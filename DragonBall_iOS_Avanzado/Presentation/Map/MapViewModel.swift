@@ -25,21 +25,21 @@ class MapViewModel: MapViewControllerDelegate {
         self.heroes = heroes ?? []
     }
     
-    func fetchLocations() -> HeroLocations  {
-        DispatchQueue.global().async {
-            self.heroes.forEach { hero in
-                if let token = self.keyChainProvider.getToken() {
-                    self.apiProvider.getLocations(by: hero.id, token: token) { locations in
-                        self.heroLocations?.append(contentsOf: locations)
-                    
-        }
-                    
-                }
-            }
-            
-        }
-        return heroLocations ?? []
-       
-    }
+//    func fetchLocations() -> HeroLocations  {
+////        DispatchQueue.global().async {
+////            self.heroes.forEach { hero in
+////                if let token = self.keyChainProvider.getToken() {
+////                    self.apiProvider.getLocations(by: hero.id, token: token) { locations in
+////                        self.heroLocations?.append(contentsOf: locations)
+////                    
+////        }
+////                    
+////                }
+////            }
+////            
+////        }
+//        return heroLocations ?? []
+//       
+//    }
     
 }

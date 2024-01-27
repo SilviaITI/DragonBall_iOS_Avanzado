@@ -10,8 +10,7 @@ import MapKit
 
 protocol MapViewControllerDelegate {
     var viewState:((MapViewState) -> Void)? {get set}
- 
-    func fetchLocations() -> HeroLocations
+   // func fetchLocations() -> HeroLocations
 }
     enum MapViewState {
         case loading(_ isLoading: Bool)
@@ -24,7 +23,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateViews()
+       // updateViews()
         
 
     }
@@ -33,21 +32,21 @@ class MapViewController: UIViewController {
         
     }
     
-    private func updateViews( ) {
-   
-            var locationsAnotations = self.viewModel?.fetchLocations()
-            for locationAnotation in locationsAnotations! {
-                print("cacaConrto\(locationAnotation.latitud)")
-            self.heroesMap.addAnnotation(
-                LocationsAnotations(
-                    coordinate: .init(latitude: Double(locationAnotation.latitud ?? "0.0" ) ?? 0.0,
-                                      longitude: Double(locationAnotation.longitud ?? "0.0" ) ?? 0.0),
-                    title: "hola",
-                    info:  "id"
-                    )
-                )
-                self.heroesMap.setNeedsDisplay()
-        }
+//    private func updateViews( ) {
+//   
+//            var locationsAnotations = self.viewModel?.fetchLocations()
+//            for locationAnotation in locationsAnotations! {
+//                print("cacaConrto\(locationAnotation.latitud)")
+//            self.heroesMap.addAnnotation(
+//                LocationsAnotations(
+//                    coordinate: .init(latitude: Double(locationAnotation.latitud ?? "0.0" ) ?? 0.0,
+//                                      longitude: Double(locationAnotation.longitud ?? "0.0" ) ?? 0.0),
+//                    title: "hola",
+//                    info:  "id"
+//                    )
+//                )
+//                self.heroesMap.setNeedsDisplay()
+//        }
                     
         /*
          // MARK: - Navigation
@@ -60,4 +59,4 @@ class MapViewController: UIViewController {
          */
         
     }
-}
+

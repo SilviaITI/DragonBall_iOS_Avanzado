@@ -11,24 +11,28 @@ class LaunchViewModel: LaunchViewControllerDelegate {
     
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
+    private let coreDataManager: CoreDataManagerProtocol
     var viewState: ((LaunchViewState) -> Void)?
     
     lazy var loginViewModel: LoginViewControllerDelegate = {
           LoginViewModel(
             apiProvider: apiProvider,
-             keyChainProvider: keyChainProvider
+             keyChainProvider: keyChainProvider,
+            coreDataManager: coreDataManager
           )
       }()
 
       lazy var homeViewModel: HomeViewControllerDelegate = {
           HomeViewModel(
             apiProvider: apiProvider,
-             keyChainProvider: keyChainProvider
+            keyChainProvider: keyChainProvider,
+            coreDataManager: coreDataManager as! CoreDataManager
           )
       }()
-    init(apiProvider: ApiProviderProtocol, keyChainProvider: KeyChainProviderProtocol) {
+    init(apiProvider: ApiProviderProtocol, keyChainProvider: KeyChainProviderProtocol, coreDataManager: CoreDataManagerProtocol) {
           self.apiProvider = apiProvider
           self.keyChainProvider = keyChainProvider
+        self.coreDataManager = coreDataManager
       }
     
     func onViewAppear() {

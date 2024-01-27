@@ -11,7 +11,7 @@ import CoreData
 @objc(LocationDao)
 class LocationDao: NSManagedObject {
     
-    static let entityNameHero = "LocationDao"
+    static let entityName = "LocationDao"
     
     @NSManaged var dateShow: String?
     @NSManaged var id: String?
@@ -19,19 +19,11 @@ class LocationDao: NSManagedObject {
     @NSManaged var longitud: String?
     
     
-    convenience init(location: HeroLocation, context: NSManagedObjectContext) {
+    convenience init(location: HeroLocations, context: NSManagedObjectContext) {
         self.init( context: context)
-        if let id = location.id {
-            self.id = id
-        }
-        if let dateShow = location.date {
-            self.dateShow = dateShow
-        }
-        if let latitud = location.latitud {
-            self.latitud = latitud
-        }
-        if let longitud = location.longitud{
-            self.longitud = longitud
-        }
+        id = location.id
+        dateShow = location.date
+        latitud = location.latitud
+        longitud = location.longitud
     }
 }

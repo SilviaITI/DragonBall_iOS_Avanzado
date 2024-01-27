@@ -18,7 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let launch = LaunchViewController()        
         let navigationController = UINavigationController(rootViewController: launch)
         let keyChainProvider = KeyChainProvider()
-        launch.viewModel = LaunchViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider())
+        let coreDataManager = CoreDataManager(moc: CoreDataStack.shared.persistentContainer.viewContext)
+        launch.viewModel = LaunchViewModel(apiProvider: ApiProvider(),
+                                           keyChainProvider: KeyChainProvider(),
+                                           coreDataManager:  coreDataManager)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
@@ -52,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+   
     }
 
 

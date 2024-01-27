@@ -7,9 +7,9 @@
 
 import Foundation
 
-typealias HeroLocations = [HeroLocation]
 
-struct HeroLocation: Codable {
+
+struct HeroLocations: Codable {
     let id: String?
     let latitud: String?
     let longitud: String?

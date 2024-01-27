@@ -108,13 +108,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) { // para presentar la
-            let hero = viewModel?.heroBy(index: indexPath.row)
-            let detailViewController = DetailViewController()
-            detailViewController.hero = hero
-            navigationController?.show(detailViewController, sender: hero)
-            tableView.deselectRow(at: indexPath, animated: true)
-            
-            
+            if let hero = viewModel?.heroBy(index: indexPath.row) {
+                let detailViewController = DetailViewController()
+                let detailViewModel = DetailViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider(), hero: hero )
+                detailViewController.viewModel = detailViewModel
+                navigationController?.show(detailViewController, sender: hero)
+                tableView.deselectRow(at: indexPath, animated: true)
+                
+            }
         }
 }
 

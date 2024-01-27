@@ -16,7 +16,7 @@ class DataTestProvider: ApiProviderProtocol {
         
     }
     
-    func getLocations(by heroId: String?, token: String, completion: ((HeroLocations) -> Void)?) {
+    func getLocations(by heroId: String?, token: String, completion: (([HeroLocations]) -> Void)?) {
         
     }
     
