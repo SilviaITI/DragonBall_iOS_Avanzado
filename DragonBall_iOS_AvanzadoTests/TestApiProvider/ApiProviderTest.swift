@@ -31,6 +31,7 @@ final class ApiProviderTest: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    // MARK: - Test Properties -
     var apiProvider = ApiProvider()
     let token = "testToken"
     let modelHero = Hero(id: "3", name: "Goku", description: "Esto es una descripción", photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"), favorite: true)
@@ -38,9 +39,8 @@ final class ApiProviderTest: XCTestCase {
     let modelHero2 = Hero(id: "3", name: "Gokula", description: "Esto es una descripción", photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"), favorite: true)
     
     var heroes:Heroes = []
-  
+    
       func setupHeroes() {
-          // Inicializa la propiedad heroes utilizando las instancias ya creadas
           heroes = [modelHero, modelHero1, modelHero2]
       }
     

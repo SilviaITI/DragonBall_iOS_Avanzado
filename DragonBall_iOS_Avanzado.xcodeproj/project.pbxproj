@@ -47,7 +47,6 @@
 		61E61FA92B601E9500F309BD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E61FA72B601E9500F309BD /* MapViewController.swift */; };
 		61E61FAA2B601E9500F309BD /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61E61FA82B601E9500F309BD /* MapViewController.xib */; };
 		61E61FAC2B601EAF00F309BD /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E61FAB2B601EAF00F309BD /* MapViewModel.swift */; };
-		61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F19EE12B57CE0500E20323 /* DataTestProvider.swift */; };
 		61F91A3F2B628D75009C72F7 /* DragonBallModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61F91A3D2B628D75009C72F7 /* DragonBallModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +110,6 @@
 		61E61FA72B601E9500F309BD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		61E61FA82B601E9500F309BD /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		61E61FAB2B601EAF00F309BD /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		61F19EE12B57CE0500E20323 /* DataTestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTestProvider.swift; sourceTree = "<group>"; };
 		61F91A3E2B628D75009C72F7 /* DragonBallModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DragonBallModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,7 +299,6 @@
 		61C458242B53DF330024E122 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				61F19EE02B57CDDA00E20323 /* DataTestProvider */,
 				61C458272B53DF530024E122 /* Models */,
 				61C458262B53DF440024E122 /* ApiProvider */,
 				61C458252B53DF3D0024E122 /* Local */,
@@ -382,14 +379,6 @@
 				61E61FAB2B601EAF00F309BD /* MapViewModel.swift */,
 			);
 			path = Map;
-			sourceTree = "<group>";
-		};
-		61F19EE02B57CDDA00E20323 /* DataTestProvider */ = {
-			isa = PBXGroup;
-			children = (
-				61F19EE12B57CE0500E20323 /* DataTestProvider.swift */,
-			);
-			path = DataTestProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,7 +540,6 @@
 				614B54012B653D2A0063C5BD /* HeroAnnotation.swift in Sources */,
 				610A05DB2B5D834100482077 /* DetailViewController.swift in Sources */,
 				614966802B58443C003F292B /* LocationDao.swift in Sources */,
-				61F19EE22B57CE0500E20323 /* DataTestProvider.swift in Sources */,
 				61557D1B2B558AB70049A1BD /* Location.swift in Sources */,
 				61C4583A2B5401700024E122 /* KeyChainProvider.swift in Sources */,
 				61F91A3F2B628D75009C72F7 /* DragonBallModel.xcdatamodeld in Sources */,

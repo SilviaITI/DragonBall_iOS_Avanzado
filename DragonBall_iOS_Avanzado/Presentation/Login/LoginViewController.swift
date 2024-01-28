@@ -6,17 +6,23 @@
 //
 
 import UIKit
+
+// MARK: - Protocol -
 protocol LoginViewControllerDelegate {
     var viewState:((LoginViewState) -> Void)? {get set}
     var homeViewModel: HomeViewControllerDelegate { get }
     func onLoginPressed(email: String?, password: String?)
 }
+
+// MARK: - Enum States -
 enum LoginViewState {
     case loading(_ isLoading: Bool)
     case showErrorEmail(_ error: String?)
     case showErrorPassword(_ error: String?)
     case navigateToNext
 }
+
+// MARK: - Class -
 class LoginViewController: UIViewController {
     
     //MARK: - Outlets -

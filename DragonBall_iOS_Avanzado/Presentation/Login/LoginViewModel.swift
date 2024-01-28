@@ -10,11 +10,11 @@ import Foundation
 //MARK: - Class -
 class LoginViewModel: LoginViewControllerDelegate {
 
+    // MARK: - Properties -
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
     private let coreDataManager: CoreDataManagerProtocol
     
-    // MARK: - Properties -
     var viewState: ((LoginViewState) -> Void)?
     var token: String = ""
     
@@ -43,11 +43,12 @@ class LoginViewModel: LoginViewControllerDelegate {
         )
     }
     
+    // MARK: - Deinit -
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    //MARK: - Functions
+    //MARK: - Functions -
     func onLoginPressed(email: String?, password: String?) {
         viewState?(.loading(true))
         DispatchQueue.global().async { [self] in

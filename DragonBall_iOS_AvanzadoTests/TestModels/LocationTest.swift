@@ -33,8 +33,16 @@ final class LocationTest: XCTestCase {
     }
     
     func testModelLocation() throws {
-        let modelHero = Hero(id: "3", name: "Goku", description: "Esto es una descripción", photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"), favorite: true)
-        let modelLocation = Location(id: "1", latitud: "1.2", longitud: "3.8", date: "2/9/2022", hero: modelHero )
+        let modelHero = Hero(id: "3",
+                             name: "Goku",
+                             description: "Esto es una descripción",
+                             photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"),
+                             favorite: true)
+        let modelLocation = Location(id: "1", 
+                                     latitud: "1.2",
+                                     longitud: "3.8",
+                                     date: "2/9/2022",
+                                     hero: modelHero )
         
         XCTAssertNotNil(modelLocation)
         XCTAssertEqual(modelLocation.id, "1")

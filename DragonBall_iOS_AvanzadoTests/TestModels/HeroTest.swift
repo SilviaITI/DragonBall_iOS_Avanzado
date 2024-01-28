@@ -32,7 +32,11 @@ final class HeroTest: XCTestCase {
         }
     }
     func testModelHeroe() throws {
-        let modelHero = Hero(id: "3", name: "Goku", description: "Esto es una descripción", photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"), favorite: true)
+        let modelHero = Hero(id: "3", 
+                             name: "Goku",
+                             description: "Esto es una descripción",
+                             photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"),
+                             favorite: true)
         
         XCTAssertNotNil(modelHero)
         XCTAssertEqual(modelHero.id, "3")
