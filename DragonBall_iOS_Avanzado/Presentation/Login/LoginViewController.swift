@@ -80,7 +80,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-  
      // MARK: - Navigation -
      
     func navigateToNext() {
@@ -88,8 +87,8 @@ class LoginViewController: UIViewController {
         home.viewModel = self.viewModel?.homeViewModel
         navigationController?.setViewControllers([home], animated: true)
     }
-    
 }
+
 extension LoginViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if emailTextfield == textField {
