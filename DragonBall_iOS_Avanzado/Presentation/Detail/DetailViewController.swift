@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     // MARK: - Lyfecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        heroImage.layer.cornerRadius = 20.0
+        setHeroImage()
         viewModel?.onViewsAppear()
         setObvservers()
     }
@@ -72,9 +72,20 @@ class DetailViewController: UIViewController {
                     )
                 )
                 self.mapDetail.setNeedsDisplay()
+                self.mapDetail.region.center.latitude = Double(heroLocations.first?.latitud ?? "") ?? 0.0
+                self.mapDetail.region.center.longitude = Double(heroLocations.first?.longitud ?? "") ?? 0.0
                 print(HeroAnnotation.self)
             }
         }
+    }
+    
+    private func setHeroImage() {
+        heroImage.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
+        heroImage.contentMode = .scaleAspectFill
+        heroImage.layer.cornerRadius = heroImage.frame.size.width / 2
+        heroImage.layer.borderWidth = 2.0
+        heroImage.layer.borderColor = UIColor.black.cgColor
+        heroImage.clipsToBounds = true
     }
 }
 
