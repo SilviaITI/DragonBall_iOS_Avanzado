@@ -52,15 +52,17 @@ class LoginViewModel: LoginViewControllerDelegate {
     func onLoginPressed(email: String?, password: String?) {
         viewState?(.loading(true))
         DispatchQueue.global().async { [self] in
-            guard self.isValidEmail(email: email) else {
+            if (self.isValidEmail(email: email) || (email == ""))  {
+                self.viewState?(.hideErrorEmail)}
+            else{
                 self.viewState?(.loading(false))
                 self.viewState?(.showErrorEmail("Indique un email válido"))
-                return
             }
-            guard self.isValidPassword(password: password) else {
+            if (self.isValidPassword(password: password) || (password == ""))  {
+                self.viewState?(.hideErrorPassword)}
+            else{
                 self.viewState?(.loading(false))
                 self.viewState?(.showErrorPassword("El password no es válido"))
-                return
             }
             self.doLoginWith(
                 email: email ?? "",

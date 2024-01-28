@@ -65,7 +65,7 @@ class CoreDataManager: NSObject, CoreDataManagerProtocol {
         }
     }
     
-    // delete heroes from CoreData
+   
     // delete heroes from CoreData
     func deleteAllHeroes() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: HeroDao.entityName)
