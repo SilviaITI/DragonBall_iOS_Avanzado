@@ -30,19 +30,18 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
    // MARK: - Outlets -
     @IBOutlet weak var searchHero: UISearchBar!
     @IBOutlet weak var tableHeros: UITableView!
-    @IBOutlet weak var tabBar: UITabBar!
-    @IBOutlet weak var exit: UITabBarItem!
-    @IBOutlet weak var map: UITabBarItem!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var exitButton: UIButton!
     
     // MARK: - Properties
     var viewModel: HomeViewControllerDelegate?
     //MARK: - Lyfecycle
     
+    @IBOutlet weak var Mapa: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Héroes"
-        tabBar.delegate = self
+       
         tableHeros.delegate = self
         tableHeros.dataSource = self
         searchHero.delegate = self
@@ -53,6 +52,21 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         setObservers()
         viewModel?.onViewAppear()
        
+    }
+    
+    @IBAction func onClickExitButton(_ sender: Any) {
+        viewModel?.logOut()
+        let login = LoginViewController()
+        login.viewModel = self.viewModel?.loginViewModel
+        navigationController?.setViewControllers([login], animated: true)
+    }
+    
+  
+    @IBAction func onClickMapButton(_ sender: Any) {
+        let mapView = MapViewController()
+    mapView.viewModel = MapViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider(), heroes: viewModel?.fecthHeroes()) as? any MapViewControllerDelegate
+   
+        navigationController?.pushViewController(mapView, animated: true)
     }
     
     func reloadData() {
@@ -120,22 +134,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
 }
 
-extension HomeViewController: UITabBarDelegate {
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item == exit {
-            viewModel?.logOut()
-            let login = LoginViewController()
-            login.viewModel = self.viewModel?.loginViewModel
-            navigationController?.setViewControllers([login], animated: true)
-            
-            //CoreDataManager.shared.deleteAll()
-        } else if item == map{
-            print("pulsado")
-                let mapView = MapViewController()
-            mapView.viewModel = MapViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider(), heroes: viewModel?.fecthHeroes()) as? any MapViewControllerDelegate
-           
-                navigationController?.pushViewController(mapView, animated: true)
-        }
-    }
-}
 
