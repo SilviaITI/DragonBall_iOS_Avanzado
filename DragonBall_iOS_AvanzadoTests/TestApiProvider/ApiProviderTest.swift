@@ -32,12 +32,34 @@ final class ApiProviderTest: XCTestCase {
         }
     }
     var apiProvider = ApiProvider()
+    let token = "testToken"
+    let modelHero = Hero(id: "3", name: "Goku", description: "Esto es una descripción", photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"), favorite: true)
+    let modelHero1 = Hero(id: "3", name: "Gokulo", description: "Esto es una descripción", photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"), favorite: true)
+    let modelHero2 = Hero(id: "3", name: "Gokula", description: "Esto es una descripción", photo: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087"), favorite: true)
+    
+    var heroes:Heroes = []
+  
+      func setupHeroes() {
+          // Inicializa la propiedad heroes utilizando las instancias ya creadas
+          heroes = [modelHero, modelHero1, modelHero2]
+      }
+    
     func testLogin() {
-        
-        apiProvider.login(for: "testUser", with: "testPassword")
-        
-        
-        
-        
+        let user = "testUser"
+        let password = "testPassword"
+        apiProvider.login(for: user, with: password)
+        XCTAssertNotNil(user)
+        XCTAssertNotNil(password)
+        XCTAssertEqual(token, "testToken")
     }
+    
+    func testGetHeroes() {
+        apiProvider.getHeroes(by: "", token: token) {_ in
+            self.heroes
+        }
+        XCTAssertNotNil(token)
+        XCTAssertNotNil(heroes)
+    }
+    
+   
 }

@@ -93,9 +93,9 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if emailTextfield == textField {
-            emailTextfield.isHidden
+            errorEmailLabel.isHidden
         } else   if passwordTextfield == textField {
-            passwordTextfield.isHidden
+            errorPasswordLabel.isHidden
         }
     }
 }
