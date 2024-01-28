@@ -6,28 +6,30 @@
 //
 
 import UIKit
+
 // MARK: - Protocol -
 protocol LaunchViewControllerDelegate {
     var viewState:((LaunchViewState) -> Void)? {get set}
     var loginViewModel: LoginViewControllerDelegate { get }
-     var homeViewModel: HomeViewControllerDelegate { get }
+    var homeViewModel: HomeViewControllerDelegate { get }
     func onViewAppear()
 }
+
 // MARK: - Enum States -
 enum LaunchViewState {
     case loading(_ isLoading: Bool)
     case navigateToLogin
     case navigateToHome
-    
 }
+
 //MARK: - Class -
 class LaunchViewController: UIViewController {
     
-    // MARK: - Properties -
-    var viewModel: LaunchViewControllerDelegate?
-    
     // MARK: - Outlets -
     @IBOutlet weak var loadingView: UIView!
+    
+    // MARK: - Properties -
+    var viewModel: LaunchViewControllerDelegate?
     
     // MARK: - LyfeCycle -
     override func viewDidLoad() {
@@ -35,7 +37,7 @@ class LaunchViewController: UIViewController {
         viewModel?.onViewAppear()
         setObservers()
     }
-
+    
     // MARK: - Functions -
     private func setObservers() {
         viewModel?.viewState = { [weak self] state in
@@ -51,24 +53,21 @@ class LaunchViewController: UIViewController {
             }
         }
     }
- 
+    
     // MARK: - Navigation -
-
     private func navigateToLogin() {
         DispatchQueue.main.async {
             let loginViewController = LoginViewController()
             loginViewController.viewModel = self.viewModel?.loginViewModel
             self.navigationController?.setViewControllers([loginViewController], animated: true)
-         
-            
         }
     }
+    
     private func navigateToHome() {
         DispatchQueue.main.async {
             let homeViewController = HomeViewController()
             homeViewController.viewModel = self.viewModel?.homeViewModel
             self.navigationController?.setViewControllers([homeViewController], animated: true)
-            
         }
     }
 }

@@ -6,8 +6,10 @@
 //
 
 import Foundation
+// MARK: - Class -
 class HomeViewModel: HomeViewControllerDelegate {
     
+    // MARK: - Properties -
     lazy var loginViewModel: LoginViewControllerDelegate = {
         LoginViewModel(
             apiProvider: apiProvider,
@@ -16,7 +18,6 @@ class HomeViewModel: HomeViewControllerDelegate {
         )
     }()
     
-    // MARK: - Properties -
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
     private let coreDataManager: CoreDataManagerProtocol
@@ -25,9 +26,6 @@ class HomeViewModel: HomeViewControllerDelegate {
     var heroes: Heroes = []
     var originalHeroes: Heroes = []
     
-    
-    
-    
     // MARK: - Init -
     init(apiProvider: ApiProviderProtocol,
          keyChainProvider: KeyChainProviderProtocol,
@@ -35,15 +33,12 @@ class HomeViewModel: HomeViewControllerDelegate {
         self.apiProvider = apiProvider
         self.keyChainProvider = keyChainProvider
         self.coreDataManager = coreDataManager
-        
     }
-    
     
     // MARK: - Functions -
     func logOut() {
         keyChainProvider.delete(token: token)
         coreDataManager.deleteAllHeroes()
-        
     }
     
     var heroesCount: Int {
@@ -51,12 +46,8 @@ class HomeViewModel: HomeViewControllerDelegate {
     }
     
     func onViewAppear() {
-        
-        
         viewState?(.loading(true))
-        
         DispatchQueue.global().async {
-            
             guard let token = self.keyChainProvider.getToken()
             else { return }
             let savedHeroes = self.coreDataManager.loadHero()
@@ -80,21 +71,11 @@ class HomeViewModel: HomeViewControllerDelegate {
                     self.viewState?(.loading(false))
                     for hero in heroes {
                         self.coreDataManager.saveHero(hero: hero)
-                        
-                        
                     }
-                    
-                    
                 }
             }
-            
         }
-        
     }
-    
-    
-    
-    
     
     func heroBy(index: Int) -> Hero? {
         if index >= 0 && index < heroesCount {
@@ -103,7 +84,6 @@ class HomeViewModel: HomeViewControllerDelegate {
             return nil
         }
     }
-    
     
     func fecthHeroes() -> Heroes {
         heroes

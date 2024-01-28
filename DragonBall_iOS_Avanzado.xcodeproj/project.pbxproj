@@ -24,6 +24,11 @@
 		61557D1B2B558AB70049A1BD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D1A2B558AB70049A1BD /* Location.swift */; };
 		61557D1F2B559F3B0049A1BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61557D1D2B559F3B0049A1BD /* HomeViewController.swift */; };
 		61557D202B559F3B0049A1BD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61557D1E2B559F3B0049A1BD /* HomeViewController.xib */; };
+		617273C52B6662DD00F28D4E /* KeyChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617273C42B6662DD00F28D4E /* KeyChainTest.swift */; };
+		617273C72B66650C00F28D4E /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617273C62B66650C00F28D4E /* CoreDataTest.swift */; };
+		617273CB2B666F2600F28D4E /* HeroTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617273CA2B666F2600F28D4E /* HeroTest.swift */; };
+		617273CD2B666F3800F28D4E /* LocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617273CC2B666F3800F28D4E /* LocationTest.swift */; };
+		617273D02B66727E00F28D4E /* ApiProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617273CF2B66727E00F28D4E /* ApiProviderTest.swift */; };
 		619A8AE62B5D25A300BC6EF2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A8AE52B5D25A300BC6EF2 /* HomeViewModel.swift */; };
 		61C457EF2B53DEA00024E122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C457EE2B53DEA00024E122 /* AppDelegate.swift */; };
 		61C457F12B53DEA00024E122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C457F02B53DEA00024E122 /* SceneDelegate.swift */; };
@@ -79,6 +84,11 @@
 		61557D1A2B558AB70049A1BD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		61557D1D2B559F3B0049A1BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61557D1E2B559F3B0049A1BD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		617273C42B6662DD00F28D4E /* KeyChainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTest.swift; sourceTree = "<group>"; };
+		617273C62B66650C00F28D4E /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		617273CA2B666F2600F28D4E /* HeroTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTest.swift; sourceTree = "<group>"; };
+		617273CC2B666F3800F28D4E /* LocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTest.swift; sourceTree = "<group>"; };
+		617273CF2B66727E00F28D4E /* ApiProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProviderTest.swift; sourceTree = "<group>"; };
 		619A8AE52B5D25A300BC6EF2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		61C457EB2B53DEA00024E122 /* DragonBall_iOS_Avanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragonBall_iOS_Avanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C457EE2B53DEA00024E122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +195,32 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		617273C82B666EF400F28D4E /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				617273C42B6662DD00F28D4E /* KeyChainTest.swift */,
+				617273C62B66650C00F28D4E /* CoreDataTest.swift */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
+		617273C92B666F0700F28D4E /* TestModels */ = {
+			isa = PBXGroup;
+			children = (
+				617273CA2B666F2600F28D4E /* HeroTest.swift */,
+				617273CC2B666F3800F28D4E /* LocationTest.swift */,
+			);
+			path = TestModels;
+			sourceTree = "<group>";
+		};
+		617273CE2B66726000F28D4E /* TestApiProvider */ = {
+			isa = PBXGroup;
+			children = (
+				617273CF2B66727E00F28D4E /* ApiProviderTest.swift */,
+			);
+			path = TestApiProvider;
+			sourceTree = "<group>";
+		};
 		61C457E22B53DEA00024E122 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +258,9 @@
 		61C458072B53DEA20024E122 /* DragonBall_iOS_AvanzadoTests */ = {
 			isa = PBXGroup;
 			children = (
+				617273CE2B66726000F28D4E /* TestApiProvider */,
+				617273C92B666F0700F28D4E /* TestModels */,
+				617273C82B666EF400F28D4E /* TestData */,
 				61C458082B53DEA20024E122 /* DragonBall_iOS_AvanzadoTests.swift */,
 			);
 			path = DragonBall_iOS_AvanzadoTests;
@@ -524,7 +563,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617273C72B66650C00F28D4E /* CoreDataTest.swift in Sources */,
 				61C458092B53DEA20024E122 /* DragonBall_iOS_AvanzadoTests.swift in Sources */,
+				617273C52B6662DD00F28D4E /* KeyChainTest.swift in Sources */,
+				617273CD2B666F3800F28D4E /* LocationTest.swift in Sources */,
+				617273CB2B666F2600F28D4E /* HeroTest.swift in Sources */,
+				617273D02B66727E00F28D4E /* ApiProviderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

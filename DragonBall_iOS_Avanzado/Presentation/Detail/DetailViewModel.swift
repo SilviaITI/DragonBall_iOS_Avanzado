@@ -8,22 +8,24 @@
 import Foundation
 import MapKit
 
+// MARK: - Class -
 class DetailViewModel: DetailViewControllerDelegate {
     
+    // MARK: - Properties -
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
     var vieweState: ((DetailState) -> Void)?
     private var hero: Hero
     private var heroLocations: [Location] = []
     
-    
-    
+    // MARK: - Init -
     init(apiProvider: ApiProviderProtocol, keyChainProvider: KeyChainProviderProtocol,  hero: Hero) {
         self.apiProvider = apiProvider
         self.keyChainProvider = keyChainProvider
         self.hero = hero
     }
     
+    // MARK: - Functions -
     func onViewsAppear() {
         defer { vieweState?(.loading(false))}
         vieweState?(.loading(true))

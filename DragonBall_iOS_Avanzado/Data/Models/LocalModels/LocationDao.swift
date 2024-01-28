@@ -18,7 +18,6 @@ class LocationDao: NSManagedObject {
     @NSManaged var latitud: String?
     @NSManaged var longitud: String?
     
-    
     convenience init(location: Location, context: NSManagedObjectContext) {
         self.init( context: context)
         id = location.id

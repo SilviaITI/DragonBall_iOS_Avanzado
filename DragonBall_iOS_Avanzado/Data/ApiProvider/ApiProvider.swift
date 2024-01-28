@@ -116,20 +116,20 @@ class ApiProvider: ApiProviderProtocol {
 
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
-                // TODO: Enviar notificación indicando el error
+                print("Se ha producido un error")
                 completion?([])
                 return
             }
 
             guard let data,
                   (response as? HTTPURLResponse)?.statusCode == 200 else {
-                // TODO: Enviar notificación indicando response error
+                print("Respuesta \(String(describing: response))")
                 completion?([])
                 return
             }
 
             guard let heroes = try? JSONDecoder().decode(Heroes.self, from: data) else {
-                // TODO: Enviar notificación indicando response error
+                print("Response \(data)")
                 completion?([])
                 return
             }
@@ -158,20 +158,20 @@ class ApiProvider: ApiProviderProtocol {
 
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
-                // TODO: Enviar notificación indicando el error
+                print("Se ha producido un error")
                 completion?([])
                 return
             }
 
             guard let data,
                   (response as? HTTPURLResponse)?.statusCode == 200 else {
-                // TODO: Enviar notificación indicando response error
+                print("Respuesta \(String(describing: response))")
                 completion?([])
                 return
             }
 
             guard let heroLocations = try? JSONDecoder().decode([Location].self, from: data) else {
-                // TODO: Enviar notificación indicando response error
+                print("Response \(data)")
                 completion?([])
                 return
             }

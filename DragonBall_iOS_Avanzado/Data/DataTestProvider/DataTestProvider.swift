@@ -9,6 +9,8 @@ import Foundation
 class DataTestProvider: ApiProviderProtocol {
   
     func login(for user: String, with password: String) {
+        let user = "silvia@hotmail.com"
+        let password = "12345678"
         
     }
     

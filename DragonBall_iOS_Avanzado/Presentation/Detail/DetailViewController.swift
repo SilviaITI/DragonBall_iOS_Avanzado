@@ -10,50 +10,53 @@ import UIKit
 import Kingfisher
 import MapKit
 
+// MARK: - Protocol -
 protocol DetailViewControllerDelegate {
     var vieweState: ((DetailState) -> Void)? {get set}
     func onViewsAppear()
- 
 }
 
-
+//MARK: - Enum State -
 enum DetailState {
     case loading(_ isLoading: Bool)
     case update(hero: Hero?, locations: [Location])
 }
+
+// MARK: - Class -
 class DetailViewController: UIViewController {
-    var viewModel: DetailViewControllerDelegate?
-   
-    
+
+    // MARK: - Outlets
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var heroName: UILabel!
     @IBOutlet weak var heroDescription: UITextView!
-    
     @IBOutlet weak var mapDetail: MKMapView!
     
-
+    // MARK: - Properties -
+    var viewModel: DetailViewControllerDelegate?
+    
+    // MARK: - Lyfecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         heroImage.layer.cornerRadius = 20.0
         viewModel?.onViewsAppear()
         setObvservers()
-       
     }
-
+    
+    // MARK: - Functions -
     private func setObvservers() {
         viewModel?.vieweState = { [weak self] state in
             DispatchQueue.main.async {
                 switch state {
-                case .loading(let isLoading):
+                case .loading(_):
                     self?.loadingView.isHidden = false
                 case .update(let hero, let locations):
                     self?.initViews(hero: hero, heroLocations: locations)
-                    print("Heroe, \(hero), locations \(locations)")
                 }
             }
         }
     }
+    
     private func initViews(hero: Hero?, heroLocations: [Location]) {
         DispatchQueue.main.async {
             self.heroName.text = hero?.name
@@ -70,12 +73,8 @@ class DetailViewController: UIViewController {
                 )
                 self.mapDetail.setNeedsDisplay()
                 print(HeroAnnotation.self)
-               
             }
-           // self.centerMapAroundLocations(locations: heroLocations)
         }
     }
-    
-
-    }
+}
 
