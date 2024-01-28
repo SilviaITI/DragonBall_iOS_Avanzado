@@ -6,41 +6,39 @@
 //
 
 import Foundation
+// MARK: - Class -
 class HomeViewModel: HomeViewControllerDelegate {
-    lazy var loginViewModel: LoginViewControllerDelegate = {
-          LoginViewModel(
-            apiProvider: apiProvider,
-             keyChainProvider: keyChainProvider,
-            coreDataManager: coreDataManager
-          )
-      }()
-   
+    
     // MARK: - Properties -
+    lazy var loginViewModel: LoginViewControllerDelegate = {
+        LoginViewModel(
+            apiProvider: apiProvider,
+            keyChainProvider: keyChainProvider,
+            coreDataManager: coreDataManager
+        )
+    }()
+    
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
     private let coreDataManager: CoreDataManagerProtocol
     var viewState: ((HomeViewState) -> Void)?
     var token: String = ""
     var heroes: Heroes = []
-    
-  
+    var originalHeroes: Heroes = []
     
     // MARK: - Init -
-    init(apiProvider: ApiProviderProtocol, 
+    init(apiProvider: ApiProviderProtocol,
          keyChainProvider: KeyChainProviderProtocol,
          coreDataManager: CoreDataManager) {
         self.apiProvider = apiProvider
         self.keyChainProvider = keyChainProvider
         self.coreDataManager = coreDataManager
-       
     }
-    
     
     // MARK: - Functions -
     func logOut() {
         keyChainProvider.delete(token: token)
         coreDataManager.deleteAllHeroes()
-       
     }
     
     var heroesCount: Int {
@@ -48,14 +46,11 @@ class HomeViewModel: HomeViewControllerDelegate {
     }
     
     func onViewAppear() {
-       
         viewState?(.loading(true))
-        
         DispatchQueue.global().async {
-           
             guard let token = self.keyChainProvider.getToken()
             else { return }
-         let savedHeroes = self.coreDataManager.loadHero()
+            let savedHeroes = self.coreDataManager.loadHero()
             if !savedHeroes.isEmpty {
                 self.heroes = savedHeroes.map { heroDao in
                     return Hero(id: heroDao.id ,
@@ -64,6 +59,7 @@ class HomeViewModel: HomeViewControllerDelegate {
                                 photo: URL(string: heroDao.photo ?? "" ),
                                 favorite: heroDao.favorite)
                 }
+                self.originalHeroes = self.heroes
                 self.viewState?(.reloadData)
                 self.viewState?(.loading(false))
                 print("Saved Heroes: \(savedHeroes)")
@@ -73,39 +69,25 @@ class HomeViewModel: HomeViewControllerDelegate {
                     self.heroes = heroes
                     self.viewState?(.reloadData)
                     self.viewState?(.loading(false))
-                        for hero in heroes {
-                            self.coreDataManager.saveHero(hero: hero)
-                           
-
-                        }
-                    
-          
+                    for hero in heroes {
+                        self.coreDataManager.saveHero(hero: hero)
                     }
                 }
-               
-                }
-            }
-        
- 
-// TO DO  Mirar con foreACH
-//    func filteredHeroes(name: String)  {
-//        apiProvider.getHeroes(by: name, token: token) { fetchedHeroes in
-//            if let filteredHeroes = fetchedHeroes.filter { fetchedHeroes.name.lowercased().contains(name.lowercased()) }
-//           
-//        }
-//    }
-
-        
-        func heroBy(index: Int) -> Hero? {
-            if index >= 0 && index < heroesCount {
-                return heroes[index]
-            } else {
-                return nil
             }
         }
+    }
+    
+    func heroBy(index: Int) -> Hero? {
+        if index >= 0 && index < heroesCount {
+            return heroes[index]
+        } else {
+            return nil
+        }
+    }
+    
     func fecthHeroes() -> Heroes {
         heroes
     }
-    }
+}
 
 

@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct Location: Codable {
     let id: String?
     let latitud: String?

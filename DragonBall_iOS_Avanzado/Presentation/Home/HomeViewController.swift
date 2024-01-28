@@ -24,25 +24,26 @@ enum HomeViewState {
     case reloadData
     case navigateToMap
     case loading(_ isLoading: Bool)
+    
 }
 // MARK: - Class -
-class HomeViewController: UIViewController, UISearchBarDelegate {
-   // MARK: - Outlets -
+class HomeViewController: UIViewController {
+    
+    // MARK: - Outlets -
     @IBOutlet weak var searchHero: UISearchBar!
     @IBOutlet weak var tableHeros: UITableView!
-    @IBOutlet weak var tabBar: UITabBar!
-    @IBOutlet weak var exit: UITabBarItem!
-    @IBOutlet weak var map: UITabBarItem!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var Mapa: UIButton!
     
     // MARK: - Properties
     var viewModel: HomeViewControllerDelegate?
-    //MARK: - Lyfecycle
     
+    //MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Héroes"
-        tabBar.delegate = self
+        searchHero.delegate = self
         tableHeros.delegate = self
         tableHeros.dataSource = self
         searchHero.delegate = self
@@ -52,13 +53,28 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         )
         setObservers()
         viewModel?.onViewAppear()
-       
     }
     
-    func reloadData() {
+    // MARK: - Actions -
+    @IBAction func onClickExitButton(_ sender: Any) {
+        viewModel?.logOut()
+        let login = LoginViewController()
+        login.viewModel = self.viewModel?.loginViewModel
+        navigationController?.setViewControllers([login], animated: true)
+    }
+    
+    @IBAction func onClickMapButton(_ sender: Any) {
+        let mapView = MapViewController()
+        mapView.viewModel = MapViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider(), heroes: viewModel?.fecthHeroes())
+        navigationController?.pushViewController(mapView, animated: true)
+    }
+    
+    // MARK: - Functions -
+    private func reloadData() {
         self.tableHeros.reloadData()
     }
-    func setObservers() {
+    
+    private func setObservers() {
         viewModel?.viewState = { [weak self] state in
             DispatchQueue.main.async {
                 switch state {
@@ -66,25 +82,24 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
                     self?.reloadData()
                 case .navigateToDetail:
                     print("navigating to detail")
-               
                 case .navigateToMap:
                     print("navegar al mapa")
                 case .loading(let isLoading) :
                     self?.loadingView.isHidden = !isLoading
+                    
                 }
             }
         }
     }
-  
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - Extension -
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         Cell.estimatedHeight
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -92,16 +107,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel?.heroesCount ?? 1
     }
     
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "Cell",
             for: indexPath)
                 as? Cell else {
             return UITableViewCell()
         }
-       if let hero = viewModel?.heroBy(index: indexPath.row) {
+        if let hero = viewModel?.heroBy(index: indexPath.row) {
             cell.updateData(with: hero)
-            
         }
         return cell
     }
@@ -118,24 +132,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 
             }
         }
-}
-
-extension HomeViewController: UITabBarDelegate {
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item == exit {
-            viewModel?.logOut()
-            let login = LoginViewController()
-            login.viewModel = self.viewModel?.loginViewModel
-            navigationController?.setViewControllers([login], animated: true)
-            
-            //CoreDataManager.shared.deleteAll()
-        } else if item == map{
-            print("pulsado")
-                let mapView = MapViewController()
-            mapView.viewModel = MapViewModel(apiProvider: ApiProvider(), keyChainProvider: KeyChainProvider(), heroes: viewModel?.fecthHeroes()) as? any MapViewControllerDelegate
-           
-                navigationController?.pushViewController(mapView, animated: true)
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let homeViewModel = viewModel as? HomeViewModel else {
+            print("Error: viewModel is not HomeViewModel")
+            return
         }
+        if searchText.isEmpty {
+            homeViewModel.heroes = homeViewModel.originalHeroes
+        } else {
+            homeViewModel.heroes = homeViewModel.originalHeroes.filter { $0.name?.lowercased().contains(
+                searchText.lowercased()) ?? false }
+        }
+        tableHeros.reloadData()
     }
 }
+
+
+
+    
+
+    
+    
+    
+    
+    
 

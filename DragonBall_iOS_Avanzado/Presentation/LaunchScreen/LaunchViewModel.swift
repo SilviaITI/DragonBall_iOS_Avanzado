@@ -6,35 +6,40 @@
 //
 
 import Foundation
+
+// MARK: - Class -
 class LaunchViewModel: LaunchViewControllerDelegate {
-   
     
+    // MARK: - Properties -
     private let apiProvider: ApiProviderProtocol
     private let keyChainProvider: KeyChainProviderProtocol
     private let coreDataManager: CoreDataManagerProtocol
     var viewState: ((LaunchViewState) -> Void)?
     
     lazy var loginViewModel: LoginViewControllerDelegate = {
-          LoginViewModel(
+        LoginViewModel(
             apiProvider: apiProvider,
-             keyChainProvider: keyChainProvider,
+            keyChainProvider: keyChainProvider,
             coreDataManager: coreDataManager
-          )
-      }()
-
-      lazy var homeViewModel: HomeViewControllerDelegate = {
-          HomeViewModel(
+        )
+    }()
+    
+    lazy var homeViewModel: HomeViewControllerDelegate = {
+        HomeViewModel(
             apiProvider: apiProvider,
             keyChainProvider: keyChainProvider,
             coreDataManager: coreDataManager as! CoreDataManager
-          )
-      }()
-    init(apiProvider: ApiProviderProtocol, keyChainProvider: KeyChainProviderProtocol, coreDataManager: CoreDataManagerProtocol) {
-          self.apiProvider = apiProvider
-          self.keyChainProvider = keyChainProvider
-        self.coreDataManager = coreDataManager
-      }
+        )
+    }()
     
+    // MARK: - Init -
+    init(apiProvider: ApiProviderProtocol, keyChainProvider: KeyChainProviderProtocol, coreDataManager: CoreDataManagerProtocol) {
+        self.apiProvider = apiProvider
+        self.keyChainProvider = keyChainProvider
+        self.coreDataManager = coreDataManager
+    }
+    
+    // MARK: - Functions -
     func onViewAppear() {
         viewState?(.loading(true))
         DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
@@ -45,8 +50,9 @@ class LaunchViewModel: LaunchViewControllerDelegate {
             }
         }
     }
-        func isTokenSaved() -> Bool {
-           keyChainProvider.getToken() != nil
-        }
+    
+    func isTokenSaved() -> Bool {
+        keyChainProvider.getToken() != nil
     }
+}
 

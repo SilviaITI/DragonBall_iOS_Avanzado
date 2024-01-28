@@ -14,7 +14,6 @@ class LoginViewModel: LoginViewControllerDelegate {
     private let keyChainProvider: KeyChainProviderProtocol
     private let coreDataManager: CoreDataManagerProtocol
     
-  
     // MARK: - Properties -
     var viewState: ((LoginViewState) -> Void)?
     var token: String = ""
@@ -27,6 +26,7 @@ class LoginViewModel: LoginViewControllerDelegate {
         )
     }()
     
+    // MARK: - Init -
     init(apiProvider: ApiProviderProtocol,
          keyChainProvider: KeyChainProviderProtocol,
          coreDataManager: CoreDataManagerProtocol) {

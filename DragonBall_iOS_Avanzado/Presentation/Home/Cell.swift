@@ -20,11 +20,11 @@ class Cell: UITableViewCell {
      
             override func awakeFromNib() {
             super.awakeFromNib()
-                container.layer.cornerRadius = 8
+                container.layer.cornerRadius = 10
                 container.layer.shadowColor = UIColor.gray.cgColor
                 container.layer.shadowOffset = .zero
-                container.layer.shadowRadius = 8
-                container.layer.shadowOpacity = 0.4
+                container.layer.shadowRadius = 12
+                container.layer.shadowOpacity = 0.8
 
                 heroImage.layer.cornerRadius = 8
                 heroImage.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
